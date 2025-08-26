@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 // Fixed metadata export (removed from client component)
 export const metadata: Metadata = {
@@ -206,75 +207,6 @@ export default function RootLayout({
                                 className="block px-4 py-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
                               >
                                 View All Industries →
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Locations Dropdown */}
-                      <div className="relative group">
-                        <Link
-                          href="/locations"
-                          className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
-                        >
-                          Locations
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </Link>
-                        <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                          <div className="p-2">
-                            <Link
-                              href="/locations/chicago"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Chicago</div>
-                              <div className="text-xs text-gray-500">
-                                AI automation in Chicago
-                              </div>
-                            </Link>
-                            <Link
-                              href="/locations/naperville"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Naperville</div>
-                              <div className="text-xs text-gray-500">
-                                AI solutions in Naperville
-                              </div>
-                            </Link>
-                            <Link
-                              href="/locations/schaumburg"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Schaumburg</div>
-                              <div className="text-xs text-gray-500">
-                                AI automation in Schaumburg
-                              </div>
-                            </Link>
-                            <Link
-                              href="/locations/aurora"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Aurora</div>
-                              <div className="text-xs text-gray-500">
-                                AI solutions in Aurora
-                              </div>
-                            </Link>
-                            <div className="border-t border-gray-700 mt-2 pt-2">
-                              <Link
-                                href="/locations"
-                                className="block px-4 py-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
-                              >
-                                View All Locations →
                               </Link>
                             </div>
                           </div>
