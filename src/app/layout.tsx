@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 
-// Fixed metadata export (removed from client component)
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NODE_ENV === "production"
@@ -42,201 +41,303 @@ export default function RootLayout({
         <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900/80 via-blue-950/60 to-black/80 backdrop-blur-sm border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Link href="/">
-                  <img
-                    src="/images/logo.png"
-                    alt="Agenxus Logo"
-                    className="h-20 w-auto"
-                  />
+              {/* Logo */}
+              <Link href="/">
+                <img
+                  src="/images/logo.png"
+                  alt="Agenxus Logo"
+                  className="h-20 w-auto"
+                />
+              </Link>
+
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex items-center gap-8">
+                <Link
+                  href="/"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Home
                 </Link>
-              </div>
-              {/* Header */}
-              <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900/80 via-blue-950/60 to-black/80 backdrop-blur-sm border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-4 py-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Link href="/">
-                        <img
-                          src="/images/logo.png"
-                          alt="Agenxus Logo"
-                          className="h-20 w-auto"
-                        />
+
+                {/* Services Dropdown */}
+                <div className="relative group">
+                  <Link
+                    href="/#services"
+                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    Services
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </Link>
+                  <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="p-2">
+                      <Link
+                        href="/#services"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">AI Voice Agents</div>
+                        <div className="text-xs text-gray-500">
+                          24/7 phone automation
+                        </div>
+                      </Link>
+                      <Link
+                        href="/#services"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">AI Chatbots</div>
+                        <div className="text-xs text-gray-500">
+                          Website automation
+                        </div>
+                      </Link>
+                      <Link
+                        href="/#services"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Video Agents</div>
+                        <div className="text-xs text-gray-500">
+                          Personalized video messages
+                        </div>
+                      </Link>
+                      <Link
+                        href="/#services"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Process Automation</div>
+                        <div className="text-xs text-gray-500">
+                          Workflow automation
+                        </div>
                       </Link>
                     </div>
-                    <nav className="hidden md:flex items-center gap-8">
-                      <Link
-                        href="/"
-                        className="text-gray-300 hover:text-white transition-colors"
-                      >
-                        Home
-                      </Link>
-
-                      {/* Services Dropdown */}
-                      <div className="relative group">
-                        <Link
-                          href="/#services"
-                          className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
-                        >
-                          Services
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </Link>
-                        <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                          <div className="p-2">
-                            <Link
-                              href="/#services"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">AI Voice Agents</div>
-                              <div className="text-xs text-gray-500">
-                                24/7 phone automation
-                              </div>
-                            </Link>
-                            <Link
-                              href="/#services"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">AI Chatbots</div>
-                              <div className="text-xs text-gray-500">
-                                Website automation
-                              </div>
-                            </Link>
-                            <Link
-                              href="/#services"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Video Agents</div>
-                              <div className="text-xs text-gray-500">
-                                Personalized video messages
-                              </div>
-                            </Link>
-                            <Link
-                              href="/#services"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">
-                                Process Automation
-                              </div>
-                              <div className="text-xs text-gray-500">
-                                Workflow automation
-                              </div>
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Industries Dropdown */}
-                      <div className="relative group">
-                        <Link
-                          href="/industries"
-                          className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
-                        >
-                          Industries
-                          <svg
-                            className="w-4 h-4"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </Link>
-                        <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                          <div className="p-2">
-                            <Link
-                              href="/industries/healthcare"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Healthcare</div>
-                              <div className="text-xs text-gray-500">
-                                HIPAA-compliant AI solutions
-                              </div>
-                            </Link>
-                            <Link
-                              href="/industries/automotive"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Automotive</div>
-                              <div className="text-xs text-gray-500">
-                                Dealership automation
-                              </div>
-                            </Link>
-                            <Link
-                              href="/industries/real-estate"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Real Estate</div>
-                              <div className="text-xs text-gray-500">
-                                Lead qualification & MLS
-                              </div>
-                            </Link>
-                            <Link
-                              href="/industries/legal"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Legal Services</div>
-                              <div className="text-xs text-gray-500">
-                                Client intake automation
-                              </div>
-                            </Link>
-                            <Link
-                              href="/industries/home-services"
-                              className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                            >
-                              <div className="font-medium">Home Services</div>
-                              <div className="text-xs text-gray-500">
-                                Service call automation
-                              </div>
-                            </Link>
-                            <div className="border-t border-gray-700 mt-2 pt-2">
-                              <Link
-                                href="/industries"
-                                className="block px-4 py-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
-                              >
-                                View All Industries →
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <Link
-                        href="/contact"
-                        className="text-gray-300 hover:text-white transition-colors"
-                      >
-                        Contact
-                      </Link>
-                      <a
-                        href="https://cal.com/agenxus/discoverycall-30min"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold py-2 px-6 rounded-full text-sm hover:scale-105 transition-transform"
-                      >
-                        Book Call
-                      </a>
-                    </nav>
                   </div>
                 </div>
-              </header>
+
+                {/* Industries Dropdown */}
+                <div className="relative group">
+                  <Link
+                    href="/industries"
+                    className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
+                  >
+                    Industries
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </Link>
+                  <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                    <div className="p-2">
+                      <Link
+                        href="/industries/healthcare"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Healthcare</div>
+                        <div className="text-xs text-gray-500">
+                          HIPAA-compliant AI solutions
+                        </div>
+                      </Link>
+                      <Link
+                        href="/industries/automotive"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Automotive</div>
+                        <div className="text-xs text-gray-500">
+                          Dealership automation
+                        </div>
+                      </Link>
+                      <Link
+                        href="/industries/real-estate"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Real Estate</div>
+                        <div className="text-xs text-gray-500">
+                          Lead qualification & MLS
+                        </div>
+                      </Link>
+                      <Link
+                        href="/industries/legal"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Legal Services</div>
+                        <div className="text-xs text-gray-500">
+                          Client intake automation
+                        </div>
+                      </Link>
+                      <Link
+                        href="/industries/home-services"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Home Services</div>
+                        <div className="text-xs text-gray-500">
+                          Service call automation
+                        </div>
+                      </Link>
+                      <div className="border-t border-gray-700 mt-2 pt-2">
+                        <Link
+                          href="/industries"
+                          className="block px-4 py-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
+                        >
+                          View All Industries →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Link
+                  href="/contact"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Contact
+                </Link>
+                <a
+                  href="https://cal.com/agenxus/discoverycall-30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold py-2 px-6 rounded-full text-sm hover:scale-105 transition-transform"
+                >
+                  Book Call
+                </a>
+              </nav>
+
+              {/* SIMPLE MOBILE MENU */}
+              <div className="md:hidden">
+                <input
+                  id="menu-toggle"
+                  type="checkbox"
+                  className="hidden peer"
+                />
+
+                {/* Hamburger Button */}
+                <label
+                  htmlFor="menu-toggle"
+                  className="cursor-pointer flex flex-col items-center justify-center w-12 h-12 bg-white/10 rounded-xl border border-white/20"
+                >
+                  <span className="block w-6 h-0.5 bg-white mb-1"></span>
+                  <span className="block w-6 h-0.5 bg-white mb-1"></span>
+                  <span className="block w-6 h-0.5 bg-white"></span>
+                </label>
+
+                {/* Mobile Dropdown */}
+                <div className="hidden peer-checked:block absolute top-full left-0 right-0 mt-1 bg-gradient-to-b from-gray-900 via-blue-950 to-gray-900 border-t border-white/20 shadow-2xl">
+                  <div className="p-6 space-y-4">
+                    <Link
+                      href="/"
+                      className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
+                    >
+                      Home
+                    </Link>
+
+                    <div>
+                      <h3 className="text-white font-semibold mb-2">
+                        Services
+                      </h3>
+                      <div className="pl-4 space-y-2">
+                        <Link
+                          href="/#services"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          AI Voice Agents
+                        </Link>
+                        <Link
+                          href="/#services"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          AI Chatbots
+                        </Link>
+                        <Link
+                          href="/#services"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Video Agents
+                        </Link>
+                        <Link
+                          href="/#services"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Process Automation
+                        </Link>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-white font-semibold mb-2">
+                        Industries
+                      </h3>
+                      <div className="pl-4 space-y-2">
+                        <Link
+                          href="/industries/healthcare"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Healthcare
+                        </Link>
+                        <Link
+                          href="/industries/automotive"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Automotive
+                        </Link>
+                        <Link
+                          href="/industries/real-estate"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Real Estate
+                        </Link>
+                        <Link
+                          href="/industries/legal"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Legal Services
+                        </Link>
+                        <Link
+                          href="/industries/home-services"
+                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                        >
+                          Home Services
+                        </Link>
+                      </div>
+                    </div>
+
+                    <Link
+                      href="/contact"
+                      className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
+                    >
+                      Contact
+                    </Link>
+
+                    <a
+                      href="https://cal.com/agenxus/discoverycall-30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl mt-4 hover:from-blue-600 hover:to-cyan-600 transition-all"
+                    >
+                      Book Discovery Call
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="relative">{children}</main>
+        <main className="relative pt-24">{children}</main>
+
+        {/* Footer */}
         <footer className="py-16 px-6 bg-black/40 border-t border-white/10">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 mb-8">
@@ -258,34 +359,30 @@ export default function RootLayout({
                 {/* Contact Information */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 flex items-center justify-center">
-                      <svg
-                        className="w-4 h-4 text-cyan-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
+                    <svg
+                      className="w-4 h-4 text-cyan-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                     <span className="text-gray-300 text-sm">
                       218 S. Main Street, Naperville, IL 60540
                     </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 flex items-center justify-center">
-                      <svg
-                        className="w-4 h-4 text-cyan-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                      </svg>
-                    </div>
+                    <svg
+                      className="w-4 h-4 text-cyan-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
                     <a
                       href="tel:+18722778841"
                       className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
@@ -295,16 +392,14 @@ export default function RootLayout({
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-5 h-5 flex items-center justify-center">
-                      <svg
-                        className="w-4 h-4 text-cyan-400"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                      </svg>
-                    </div>
+                    <svg
+                      className="w-4 h-4 text-cyan-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
                     <a
                       href="mailto:info@agenxus.com"
                       className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
@@ -466,6 +561,8 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+
+        <Analytics />
       </body>
     </html>
   );

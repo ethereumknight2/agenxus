@@ -11,6 +11,8 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           "/",
           "/contact",
+          "/services", // NEW - Allow services pillar
+          "/services/*", // NEW - Allow individual service pages
           "/locations",
           "/locations/*",
           "/industries",
