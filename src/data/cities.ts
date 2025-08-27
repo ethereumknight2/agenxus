@@ -85,7 +85,7 @@ export const solutions: Solution[] = [
       "Legal Services",
       "Home Services",
       "Real Estate",
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
     ],
     color: "from-blue-500 to-cyan-500",
     stats: {
@@ -134,7 +134,7 @@ export const solutions: Solution[] = [
       "Professional Services",
       "Healthcare",
       "SaaS",
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
     ],
     color: "from-purple-500 to-pink-500",
     stats: {
@@ -183,7 +183,7 @@ export const solutions: Solution[] = [
       "Healthcare",
       "Financial Services",
       "SaaS",
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
     ],
     color: "from-green-500 to-emerald-500",
     stats: {
@@ -231,7 +231,7 @@ export const solutions: Solution[] = [
       "Multi-location businesses",
       "Service providers",
       "E-commerce",
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
     ],
     color: "from-orange-500 to-red-500",
     stats: {
@@ -273,9 +273,9 @@ export const cities: City[] = [
       "Millennium Park",
     ],
     industries: [
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
       "Automotive Dealerships",
-      "Healthcare &amp; Medical",
+      "Healthcare & Medical",
       "Professional Services",
       "Real Estate",
       "Legal Services",
@@ -381,8 +381,8 @@ export const cities: City[] = [
       "White Eagle",
     ],
     industries: [
-      "Restaurants &amp; Food Service",
-      "Healthcare &amp; Wellness",
+      "Restaurants & Food Service",
+      "Healthcare & Wellness",
       "Professional Services",
       "Home Services",
       "Legal Services",
@@ -475,7 +475,7 @@ export const cities: City[] = [
       "Hoffman Estates Border",
     ],
     industries: [
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
       "Technology",
       "Healthcare",
       "Professional Services",
@@ -569,7 +569,7 @@ export const cities: City[] = [
       "Sugar Grove Area",
     ],
     industries: [
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
       "Manufacturing",
       "Healthcare",
       "Professional Services",
@@ -663,7 +663,7 @@ export const cities: City[] = [
       "Machesney Park",
     ],
     industries: [
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
       "Manufacturing",
       "Healthcare",
       "Professional Services",
@@ -756,7 +756,7 @@ export const cities: City[] = [
       "Dunlap",
     ],
     industries: [
-      "Restaurants &amp; Food Service",
+      "Restaurants & Food Service",
       "Manufacturing",
       "Healthcare",
       "Professional Services",
@@ -836,7 +836,7 @@ export function getCityBySlug(slug: string): City | undefined {
 }
 
 export function getSolutionBySlug(slug: string): Solution | undefined {
-  return solutions.find((solution) => solution.slug === solution.slug);
+  return solutions.find((solution) => solution.slug === slug);
 }
 
 export function getAllCitySlugs(): string[] {

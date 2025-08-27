@@ -1,6 +1,6 @@
+// /app/locations/[city]/[slug]/SolutionPageClient.tsx - Part 1 (Revised)
 "use client";
 
-import type { City, Solution } from "@/data/cities";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -26,6 +26,8 @@ import {
   Shield,
   Headphones,
 } from "lucide-react";
+import type { City } from "@/data/cities";
+import type { Solution } from "@/data/solutions";
 
 interface SolutionPageClientProps {
   city: City;
@@ -231,14 +233,16 @@ export default function SolutionPageClient({
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors text-center"
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-colors"
               >
                 <PlayCircle className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-3 capitalize">{useCase}</h3>
-                <p className="text-gray-300 text-sm">
-                  Perfect for {city.name} businesses looking to automate and
-                  improve {useCase.toLowerCase()}.
+                <h3 className="text-xl font-bold mb-3">{useCase.title}</h3>
+                <p className="text-gray-300 text-sm mb-4">
+                  {useCase.description}
                 </p>
+                <div className="text-xs text-cyan-400 font-medium">
+                  Popular in: {useCase.industry}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -267,19 +271,26 @@ export default function SolutionPageClient({
               {solution.industries.map((industry, index) => {
                 const industryIcons = {
                   Healthcare: Heart,
+                  "Healthcare & Medical": Heart,
                   Automotive: Building,
+                  "Automotive Dealerships": Building,
                   "Legal Services": Scale,
                   "Home Services": Home,
                   "Real Estate": Building,
                   "E-commerce": BarChart3,
+                  "E-commerce & Retail": BarChart3,
                   "Professional Services": Users,
                   Technology: Zap,
+                  "Technology & SaaS": Zap,
                   Education: Users,
+                  "Education & Training": Users,
                   "Financial Services": TrendingUp,
                   SaaS: Zap,
                   "All Industries": Building,
+                  "Multi-location Businesses": Building,
                   "Multi-location businesses": Building,
                   "Service providers": Users,
+                  Manufacturing: Building,
                 };
 
                 const IconComp =
@@ -307,32 +318,84 @@ export default function SolutionPageClient({
             </div>
           </motion.div>
         </section>
-
         {/* Competitive Advantage */}
-        {solution.competitiveAdvantage && (
-          <section className="mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-3xl p-12 border border-blue-500/30 text-center"
-            >
-              <Shield className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
+        <section className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-3xl p-12 border border-blue-500/30 text-center"
+          >
+            <Shield className="w-16 h-16 text-cyan-400 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold mb-6">
+              Why {city.name} Businesses Choose Our {solution.shortName}
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
+              {solution.competitiveAdvantage}
+            </p>
+            <p className="text-lg text-cyan-300 font-semibold">
+              {solution.marketInsights}
+            </p>
+          </motion.div>
+        </section>
+
+        {/* ROI Section */}
+        <section className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-green-900/30 to-blue-900/30 rounded-3xl p-12 border border-green-500/30"
+          >
+            <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-6">
-                Why {city.name} Businesses Choose Our {solution.shortName}
+                {solution.shortName} ROI for {city.name} Businesses
               </h2>
-              <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8 leading-relaxed">
-                {solution.competitiveAdvantage}
+              <p className="text-xl text-gray-300">
+                Proven returns on investment with our{" "}
+                {solution.name.toLowerCase()}
               </p>
-              {solution.marketInsights && (
-                <p className="text-lg text-cyan-300 font-semibold">
-                  {solution.marketInsights}
-                </p>
-              )}
-            </motion.div>
-          </section>
-        )}
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center bg-white/5 rounded-xl p-6">
+                <div className="text-3xl font-bold text-green-400 mb-2">
+                  {solution.roi.timeToValue}
+                </div>
+                <div className="text-white font-semibold mb-2">
+                  Time to Value
+                </div>
+                <div className="text-gray-300 text-sm">
+                  Implementation timeline
+                </div>
+              </div>
+              <div className="text-center bg-white/5 rounded-xl p-6">
+                <div className="text-3xl font-bold text-blue-400 mb-2">
+                  {solution.roi.efficiency}
+                </div>
+                <div className="text-white font-semibold mb-2">
+                  Efficiency Gain
+                </div>
+                <div className="text-gray-300 text-sm">
+                  Performance improvement
+                </div>
+              </div>
+              <div className="text-center bg-white/5 rounded-xl p-6">
+                <div className="text-3xl font-bold text-purple-400 mb-2">
+                  {solution.roi.costSavings}
+                </div>
+                <div className="text-white font-semibold mb-2">
+                  Cost Savings
+                </div>
+                <div className="text-gray-300 text-sm">
+                  Average monthly savings
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
 
         {/* FAQ Section */}
         <section className="mb-20">
@@ -353,49 +416,7 @@ export default function SolutionPageClient({
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                question: `How do ${solution.name.toLowerCase()} work for ${
-                  city.name
-                } businesses?`,
-                answer: `${solution.name} for ${
-                  city.name
-                } businesses work by ${solution.description.toLowerCase()} Our solution integrates with your existing systems and can be customized for ${
-                  city.name
-                }&apos;s specific business environment.`,
-              },
-              {
-                question: `What industries in ${
-                  city.name
-                } benefit most from ${solution.name.toLowerCase()}?`,
-                answer: `${
-                  solution.name
-                } are particularly effective for ${solution.industries
-                  .slice(0, 3)
-                  .join(", ")} businesses in ${
-                  city.name
-                }. However, any business that handles customer communications can benefit from our AI automation solutions.`,
-              },
-              {
-                question: `How quickly can ${solution.name.toLowerCase()} be implemented in ${
-                  city.name
-                }?`,
-                answer: `Most ${
-                  city.name
-                } businesses can have ${solution.name.toLowerCase()} operational within 48-72 hours for basic implementations. Custom integrations typically take 1-2 weeks depending on complexity.`,
-              },
-              {
-                question: `What kind of results can ${city.name} businesses expect?`,
-                answer: `${
-                  city.name
-                } businesses using our ${solution.name.toLowerCase()} typically see ${Object.values(
-                  solution.stats
-                ).join(", ")} performance improvements. ${
-                  solution.marketInsights ||
-                  "Results vary based on implementation and usage."
-                }`,
-              },
-            ].map((faq, index) => (
+            {solution.faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

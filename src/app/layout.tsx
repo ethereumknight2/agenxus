@@ -62,7 +62,7 @@ export default function RootLayout({
                 {/* Services Dropdown */}
                 <div className="relative group">
                   <Link
-                    href="/#services"
+                    href="/services"
                     className="text-gray-300 hover:text-white transition-colors flex items-center gap-1"
                   >
                     Services
@@ -81,7 +81,7 @@ export default function RootLayout({
                   <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="p-2">
                       <Link
-                        href="/#services"
+                        href="/services/ai-voice-agents"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
                       >
                         <div className="font-medium">AI Voice Agents</div>
@@ -90,7 +90,7 @@ export default function RootLayout({
                         </div>
                       </Link>
                       <Link
-                        href="/#services"
+                        href="/services/chatbots"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
                       >
                         <div className="font-medium">AI Chatbots</div>
@@ -99,16 +99,16 @@ export default function RootLayout({
                         </div>
                       </Link>
                       <Link
-                        href="/#services"
+                        href="/services/video-agents"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
                       >
-                        <div className="font-medium">Video Agents</div>
+                        <div className="font-medium">AI Video Agents</div>
                         <div className="text-xs text-gray-500">
                           Personalized video messages
                         </div>
                       </Link>
                       <Link
-                        href="/#services"
+                        href="/services/automation"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
                       >
                         <div className="font-medium">Process Automation</div>
@@ -116,6 +116,14 @@ export default function RootLayout({
                           Workflow automation
                         </div>
                       </Link>
+                      <div className="border-t border-gray-700 mt-2 pt-2">
+                        <Link
+                          href="/services"
+                          className="block px-4 py-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium"
+                        >
+                          View All Services →
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -169,7 +177,7 @@ export default function RootLayout({
                         </div>
                       </Link>
                       <Link
-                        href="/industries/legal"
+                        href="/industries/legal-services"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
                       >
                         <div className="font-medium">Legal Services</div>
@@ -184,6 +192,15 @@ export default function RootLayout({
                         <div className="font-medium">Home Services</div>
                         <div className="text-xs text-gray-500">
                           Service call automation
+                        </div>
+                      </Link>
+                      <Link
+                        href="/industries/professional-services"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Professional Services</div>
+                        <div className="text-xs text-gray-500">
+                          Client management AI
                         </div>
                       </Link>
                       <div className="border-t border-gray-700 mt-2 pt-2">
@@ -214,7 +231,7 @@ export default function RootLayout({
                 </a>
               </nav>
 
-              {/* SIMPLE MOBILE MENU */}
+              {/* MOBILE MENU - FIXED SCROLLING */}
               <div className="md:hidden">
                 <input
                   id="menu-toggle"
@@ -232,9 +249,9 @@ export default function RootLayout({
                   <span className="block w-6 h-0.5 bg-white"></span>
                 </label>
 
-                {/* Mobile Dropdown */}
-                <div className="hidden peer-checked:block absolute top-full left-0 right-0 mt-1 bg-gradient-to-b from-gray-900 via-blue-950 to-gray-900 border-t border-white/20 shadow-2xl">
-                  <div className="p-6 space-y-4">
+                {/* Mobile Dropdown - FIXED WITH PROPER SCROLLING */}
+                <div className="hidden peer-checked:block fixed top-24 left-0 right-0 h-[calc(100vh-6rem)] bg-gradient-to-b from-gray-900 via-blue-950 to-gray-900 border-t border-white/20 shadow-2xl overflow-y-auto">
+                  <div className="p-6 space-y-6">
                     <Link
                       href="/"
                       className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
@@ -243,71 +260,101 @@ export default function RootLayout({
                     </Link>
 
                     <div>
-                      <h3 className="text-white font-semibold mb-2">
+                      <h3 className="text-white font-semibold mb-3 text-lg">
                         Services
                       </h3>
-                      <div className="pl-4 space-y-2">
+                      <div className="pl-4 space-y-3">
                         <Link
-                          href="/#services"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          href="/services/ai-voice-agents"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           AI Voice Agents
                         </Link>
                         <Link
-                          href="/#services"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          href="/services/chatbots"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           AI Chatbots
                         </Link>
                         <Link
-                          href="/#services"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          href="/services/video-agents"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
-                          Video Agents
+                          AI Video Agents
                         </Link>
                         <Link
-                          href="/#services"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          href="/services/automation"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Process Automation
+                        </Link>
+                        <Link
+                          href="/services"
+                          className="block text-cyan-400 hover:text-cyan-300 py-2 transition-colors font-medium"
+                        >
+                          View All Services →
                         </Link>
                       </div>
                     </div>
 
                     <div>
-                      <h3 className="text-white font-semibold mb-2">
+                      <h3 className="text-white font-semibold mb-3 text-lg">
                         Industries
                       </h3>
-                      <div className="pl-4 space-y-2">
+                      <div className="pl-4 space-y-3">
                         <Link
                           href="/industries/healthcare"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Healthcare
                         </Link>
                         <Link
                           href="/industries/automotive"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Automotive
                         </Link>
                         <Link
                           href="/industries/real-estate"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Real Estate
                         </Link>
                         <Link
-                          href="/industries/legal"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          href="/industries/legal-services"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Legal Services
                         </Link>
                         <Link
                           href="/industries/home-services"
-                          className="block text-gray-200 hover:text-cyan-400 py-1 transition-colors"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Home Services
+                        </Link>
+                        <Link
+                          href="/industries/professional-services"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
+                        >
+                          Professional Services
+                        </Link>
+                        <Link
+                          href="/industries/financial-services"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
+                        >
+                          Financial Services
+                        </Link>
+                        <Link
+                          href="/industries/technology"
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
+                        >
+                          Technology
+                        </Link>
+                        <Link
+                          href="/industries"
+                          className="block text-cyan-400 hover:text-cyan-300 py-2 transition-colors font-medium"
+                        >
+                          View All Industries →
                         </Link>
                       </div>
                     </div>
@@ -319,11 +366,18 @@ export default function RootLayout({
                       Contact
                     </Link>
 
+                    <Link
+                      href="/locations"
+                      className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
+                    >
+                      Service Areas
+                    </Link>
+
                     <a
                       href="https://cal.com/agenxus/discoverycall-30min"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl mt-4 hover:from-blue-600 hover:to-cyan-600 transition-all"
+                      className="block w-full text-center px-6 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl mt-6 hover:from-blue-600 hover:to-cyan-600 transition-all"
                     >
                       Book Discovery Call
                     </a>
@@ -337,7 +391,7 @@ export default function RootLayout({
         {/* Main Content */}
         <main className="relative pt-24">{children}</main>
 
-        {/* Footer */}
+        {/* Footer - Updated with proper service links */}
         <footer className="py-16 px-6 bg-black/40 border-t border-white/10">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 mb-8">
@@ -410,13 +464,13 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Services */}
+              {/* Services - Updated with proper links */}
               <div>
                 <h3 className="font-semibold text-white mb-4">Services</h3>
                 <ul className="space-y-2 text-gray-400">
                   <li>
                     <Link
-                      href="/#services"
+                      href="/services/ai-voice-agents"
                       className="hover:text-white transition-colors text-sm"
                     >
                       AI Voice Agents
@@ -424,7 +478,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/#services"
+                      href="/services/chatbots"
                       className="hover:text-white transition-colors text-sm"
                     >
                       AI Chatbots
@@ -432,24 +486,32 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/#services"
+                      href="/services/video-agents"
                       className="hover:text-white transition-colors text-sm"
                     >
-                      Video Agents
+                      AI Video Agents
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href="/#services"
+                      href="/services/automation"
                       className="hover:text-white transition-colors text-sm"
                     >
                       Process Automation
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/services"
+                      className="hover:text-cyan-400 transition-colors text-sm font-medium"
+                    >
+                      View All Services →
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
-              {/* Industries */}
+              {/* Industries - Updated with proper links */}
               <div>
                 <h3 className="font-semibold text-white mb-4">Industries</h3>
                 <ul className="space-y-2 text-gray-400">
@@ -479,7 +541,7 @@ export default function RootLayout({
                   </li>
                   <li>
                     <Link
-                      href="/industries/legal"
+                      href="/industries/legal-services"
                       className="hover:text-white transition-colors text-sm"
                     >
                       Legal Services

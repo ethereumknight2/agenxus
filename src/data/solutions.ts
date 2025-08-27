@@ -1,4 +1,4 @@
-// src/data/solutions.ts - Enhanced Solution Data Structure
+// src/data/solutions.ts - Complete Enhanced Solutions Data
 
 export interface Solution {
   slug: string;
@@ -48,7 +48,7 @@ export const solutions: Solution[] = [
     shortName: "Voice Agents",
     tagline: "Human-like phone assistants that never miss a call",
     description:
-      "AI phone agents that answer calls instantly, qualify leads, book appointments, and integrate with your CRM - capturing the 76% of customers who prefer voice over chat.",
+      "Human-like phone assistants that answer every call, qualify leads, and book appointments 24/7 - capturing the 76% of customers who prefer voice interactions over chat.",
     longDescription:
       "Transform your phone system with AI voice agents that provide human-like conversations, intelligent call routing, and seamless CRM integration. Handle unlimited calls simultaneously while maintaining personalized customer experiences that drive conversions.",
     benefits: [
@@ -73,52 +73,60 @@ export const solutions: Solution[] = [
     ],
     useCases: [
       {
-        title: "24/7 Lead Qualification",
+        title: "After-hours coverage",
+        description: "Handle calls and capture leads when your team is offline",
+        industry: "All Industries",
+      },
+      {
+        title: "Lead qualification",
         description:
-          "Capture and qualify leads around the clock, even when your team is offline",
+          "Automatically qualify prospects by budget, timeline, and need",
         industry: "Real Estate, Legal, Healthcare",
       },
       {
-        title: "Appointment Scheduling",
+        title: "Appointment scheduling",
         description:
-          "Book consultations, service calls, and meetings directly into staff calendars",
+          "Book consultations and service calls directly into calendars",
         industry: "Medical, Professional Services, Home Services",
       },
       {
-        title: "Customer Support Triage",
+        title: "Customer support",
         description:
-          "Handle common inquiries and route complex issues to appropriate specialists",
+          "Handle common inquiries and route complex issues appropriately",
         industry: "Technology, E-commerce, SaaS",
       },
       {
-        title: "Sales Order Processing",
-        description:
-          "Process orders, handle product inquiries, and manage customer accounts",
+        title: "Sales inquiries",
+        description: "Process orders and provide detailed product information",
         industry: "Retail, Manufacturing, Automotive",
+      },
+      {
+        title: "Overflow call handling",
+        description: "Manage high call volumes during peak periods",
+        industry: "Healthcare, Legal, Home Services",
       },
     ],
     industries: [
-      "Healthcare & Medical",
-      "Automotive Dealerships",
+      "Healthcare",
+      "Automotive",
       "Legal Services",
-      "Real Estate",
       "Home Services",
+      "Real Estate",
       "Professional Services",
       "Technology",
       "Financial Services",
     ],
     color: "from-blue-500 to-cyan-500",
     stats: {
-      "Lead Capture": "+45%",
-      "Call Answer Rate": "99.9%",
-      "Response Time": "< 2 seconds",
-      "Customer Satisfaction": "4.8/5",
-      "Cost Reduction": "70%",
+      callAnswer: "99.9%",
+      leadIncrease: "+60%",
+      responseTime: "< 1 second",
+      costReduction: "75%",
     },
     marketInsights:
-      "Voice AI market growing at 34.8% CAGR, reaching $47.5B by 2034. 76% of consumers prefer voice interactions over text for complex inquiries, with 90% finding voice search easier than typing.",
+      "Voice AI market growing at 34.8% CAGR, with 85% efficiency rates and 4.7/5 customer satisfaction scores.",
     competitiveAdvantage:
-      "While competitors offer basic call routing, our AI agents understand context, emotion, and intent - providing human-like conversations that build trust and drive conversions at scale.",
+      "While competitors offer basic chatbots, our voice agents handle complex conversations with human-like emotional intelligence.",
     roi: {
       timeToValue: "2-3 weeks",
       efficiency: "85% improvement",
@@ -165,7 +173,7 @@ export const solutions: Solution[] = [
     shortName: "Chatbots",
     tagline: "Intelligent website assistants that convert visitors into leads",
     description:
-      "Smart chatbots trained on your content that engage visitors instantly, answer questions, and convert 45% more leads than traditional contact forms.",
+      "Intelligent website chatbots that engage visitors instantly, answer questions, and convert 45% more leads than traditional forms.",
     longDescription:
       "Deploy intelligent chatbots that understand context, provide personalized responses, and guide visitors through your sales funnel. Integrated with your CRM and trained on your specific business knowledge for accurate, helpful interactions.",
     benefits: [
@@ -190,52 +198,60 @@ export const solutions: Solution[] = [
     ],
     useCases: [
       {
-        title: "Website Lead Generation",
-        description:
-          "Capture visitor information and qualify leads before they leave your site",
+        title: "Website visitor engagement",
+        description: "Engage visitors the moment they land on your site",
         industry: "All Industries",
       },
       {
-        title: "Customer Support Automation",
-        description:
-          "Answer common questions and route complex issues to support staff",
-        industry: "E-commerce, SaaS, Professional Services",
+        title: "Lead qualification",
+        description: "Capture and qualify leads before they leave your site",
+        industry: "B2B, Real Estate, Professional Services",
       },
       {
-        title: "Product Recommendations",
+        title: "Customer support",
         description:
-          "Guide customers to the right products based on their needs and preferences",
-        industry: "Retail, E-commerce, B2B Services",
+          "Answer common questions and route complex issues to staff",
+        industry: "E-commerce, SaaS, Technology",
       },
       {
-        title: "Appointment Booking",
+        title: "Product recommendations",
         description:
-          "Schedule consultations, demos, or service appointments directly through chat",
+          "Guide customers to the right products based on their needs",
+        industry: "E-commerce, Retail, B2B Services",
+      },
+      {
+        title: "Appointment booking",
+        description:
+          "Schedule consultations and service appointments through chat",
         industry: "Healthcare, Professional Services, Home Services",
+      },
+      {
+        title: "FAQ automation",
+        description: "Automatically answer frequently asked questions",
+        industry: "All Industries",
       },
     ],
     industries: [
-      "E-commerce & Retail",
+      "E-commerce",
+      "Real Estate",
       "Professional Services",
       "Healthcare",
-      "Real Estate",
-      "Technology & SaaS",
+      "SaaS",
+      "Technology",
       "Financial Services",
-      "Education",
       "Manufacturing",
     ],
     color: "from-purple-500 to-pink-500",
     stats: {
-      "Conversion Rate": "+45%",
-      "Response Time": "Instant",
-      "Lead Quality": "78% qualified",
-      "Engagement Rate": "85%",
-      "Cost Per Lead": "-60%",
+      leadConversion: "+85%",
+      engagement: "92%",
+      responseTime: "Instant",
+      qualified: "95%",
     },
     marketInsights:
-      "78% of consumers expect instant responses online, with chatbots handling 80% of routine inquiries. Businesses see 67% increase in lead generation and 50% reduction in customer acquisition costs.",
+      "78% engagement rates with instant response times, converting 25% of website visitors into qualified leads.",
     competitiveAdvantage:
-      "Our chatbots use advanced NLP to understand context and intent, providing personalized responses that feel human while maintaining perfect brand consistency across all interactions.",
+      "Advanced NLP understands context and intent, providing personalized responses that feel human, not robotic.",
     roi: {
       timeToValue: "1-2 weeks",
       efficiency: "80% automation rate",
@@ -282,7 +298,7 @@ export const solutions: Solution[] = [
     shortName: "Video Agents",
     tagline: "Personalized video experiences that engage and convert",
     description:
-      "AI-powered video presenters that deliver personalized messages, product demos, and interactive experiences with 4x higher engagement than static content.",
+      "AI-powered video assistants delivering personalized messages with 4x higher engagement than text-based communications.",
     longDescription:
       "Create scalable video experiences with AI presenters that deliver personalized messages, interactive product demonstrations, and guided onboarding sequences that adapt to each viewer's needs and preferences.",
     benefits: [
@@ -307,52 +323,57 @@ export const solutions: Solution[] = [
     ],
     useCases: [
       {
-        title: "Personalized Sales Outreach",
-        description:
-          "Send customized video messages to prospects with their name and specific pain points",
+        title: "Customer onboarding",
+        description: "Guide new customers through setup and best practices",
+        industry: "Software, SaaS, Financial Services",
+      },
+      {
+        title: "Product demonstrations",
+        description: "Create interactive tours that adapt to viewer interests",
+        industry: "Technology, Manufacturing, B2B",
+      },
+      {
+        title: "Training videos",
+        description: "Deliver consistent training with interactive elements",
+        industry: "Corporate Training, Education, Healthcare",
+      },
+      {
+        title: "Marketing campaigns",
+        description: "Personalized video messages for prospects and customers",
+        industry: "All Industries",
+      },
+      {
+        title: "Sales presentations",
+        description: "Customized sales pitches with viewer-specific content",
         industry: "B2B Sales, Real Estate, Financial Services",
       },
       {
-        title: "Product Demonstrations",
-        description:
-          "Create interactive product tours that adapt based on viewer interests and behavior",
-        industry: "SaaS, Technology, Manufacturing",
-      },
-      {
-        title: "Customer Onboarding",
-        description:
-          "Guide new customers through setup and best practices with interactive video sequences",
-        industry: "Software, Financial Services, Healthcare",
-      },
-      {
-        title: "Training and Education",
-        description:
-          "Deliver consistent training content with interactive quizzes and progress tracking",
-        industry: "Corporate Training, Education, Healthcare",
+        title: "Support tutorials",
+        description: "Step-by-step video guides for common issues",
+        industry: "Technology, SaaS, E-commerce",
       },
     ],
     industries: [
-      "Technology & SaaS",
-      "Financial Services",
+      "Technology",
+      "Education",
       "Healthcare",
-      "Education & Training",
+      "Financial Services",
+      "SaaS",
       "Real Estate",
       "Professional Services",
-      "E-commerce",
       "Manufacturing",
     ],
     color: "from-green-500 to-emerald-500",
     stats: {
-      "Engagement Rate": "4x higher",
-      "Completion Rate": "68%",
-      Retention: "85%",
-      "Conversion Lift": "+35%",
-      "Production Cost": "-90%",
+      completion: "89%",
+      retention: "94%",
+      engagement: "6x higher",
+      conversion: "+120%",
     },
     marketInsights:
-      "Video content generates 1200% more shares than text and images combined. Personalized videos show 16x higher click-through rates, with 68% completion rates compared to 25% for generic content.",
+      "68% completion rates and 85% retention, revolutionizing customer onboarding and product demonstrations.",
     competitiveAdvantage:
-      "Unlike static video tools, our AI agents create dynamic, personalized experiences that adapt in real-time to viewer behavior and preferences, maximizing engagement and conversion.",
+      "Custom avatars and dynamic content generation create scalable, personalized video experiences impossible with human resources.",
     roi: {
       timeToValue: "1-3 weeks",
       efficiency: "90% production cost reduction",
@@ -399,7 +420,7 @@ export const solutions: Solution[] = [
     shortName: "Automation",
     tagline: "Eliminate manual work with intelligent workflow automation",
     description:
-      "End-to-end workflow automation that connects your tools, eliminates 15+ hours of manual work weekly, and operates with 99.8% accuracy.",
+      "End-to-end workflow automation connecting your tools, eliminating 15+ hours of manual work weekly with 99.8% accuracy.",
     longDescription:
       "Transform your operations with intelligent automation that connects all your business tools, eliminates repetitive tasks, and scales your team's productivity without adding headcount.",
     benefits: [
@@ -424,35 +445,41 @@ export const solutions: Solution[] = [
     ],
     useCases: [
       {
-        title: "Lead Management Automation",
-        description:
-          "Automatically capture, qualify, route, and nurture leads across all channels",
+        title: "Data synchronization",
+        description: "Automatically sync data between your business systems",
+        industry: "All Industries",
+      },
+      {
+        title: "Appointment reminders",
+        description: "Send automated reminders via SMS, email, and calls",
+        industry: "Healthcare, Professional Services, Home Services",
+      },
+      {
+        title: "Follow-up sequences",
+        description: "Nurture leads with automated email and SMS campaigns",
         industry: "Sales, Marketing, Real Estate",
       },
       {
-        title: "Customer Onboarding Workflows",
-        description:
-          "Streamline new customer setup with automated document collection and system provisioning",
-        industry: "SaaS, Financial Services, Professional Services",
-      },
-      {
-        title: "Order Processing and Fulfillment",
-        description:
-          "Automate order routing, inventory updates, and shipping notifications",
-        industry: "E-commerce, Manufacturing, Retail",
-      },
-      {
-        title: "HR and Employee Management",
-        description:
-          "Automate hiring workflows, employee onboarding, and performance tracking",
+        title: "Report generation",
+        description: "Create and distribute automated reports and analytics",
         industry: "All Industries",
+      },
+      {
+        title: "Lead nurturing",
+        description: "Automated lead scoring, routing, and follow-up workflows",
+        industry: "Sales, Marketing, B2B",
+      },
+      {
+        title: "Customer onboarding",
+        description: "Streamline new customer setup and document collection",
+        industry: "SaaS, Financial Services, Professional Services",
       },
     ],
     industries: [
       "All Industries",
-      "Multi-location Businesses",
-      "Professional Services",
-      "E-commerce & Retail",
+      "Multi-location businesses",
+      "Service providers",
+      "E-commerce",
       "Healthcare",
       "Financial Services",
       "Manufacturing",
@@ -460,16 +487,15 @@ export const solutions: Solution[] = [
     ],
     color: "from-orange-500 to-red-500",
     stats: {
-      "Time Saved": "15+ hours/week",
-      "Accuracy Rate": "99.8%",
-      ROI: "340%",
-      "Process Efficiency": "+200%",
-      "Error Reduction": "95%",
+      timeSaved: "25+ hours/week",
+      accuracy: "99.9%",
+      roi: "450%",
+      errorReduction: "98%",
     },
     marketInsights:
-      "Businesses using automation see 340% average ROI and save $15,000+ monthly. 73% of companies report automation as critical for competitive advantage, with 85% planning increased investment.",
+      "340% average ROI with businesses saving $15,000+ monthly through intelligent automation of routine tasks.",
     competitiveAdvantage:
-      "Our AI learns and adapts to your business processes, handling exceptions intelligently while simple automation tools fail. We provide end-to-end solutions, not just task automation.",
+      "Unlike simple automation tools, our AI learns and adapts to your business processes, handling exceptions intelligently.",
     roi: {
       timeToValue: "2-4 weeks",
       efficiency: "200% process improvement",
