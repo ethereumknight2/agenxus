@@ -1,4 +1,3 @@
-// /app/locations/[city]/[slug]/SolutionPageClient.tsx - Part 1 (Revised)
 "use client";
 
 import Link from "next/link";
@@ -9,13 +8,12 @@ import {
   MessageCircle,
   Video,
   Cog,
+  Search,
   ArrowRight,
   Calendar,
   CheckCircle,
-  Clock,
   Users,
   TrendingUp,
-  Star,
   Zap,
   Building,
   Home,
@@ -24,7 +22,6 @@ import {
   PlayCircle,
   BarChart3,
   Shield,
-  Headphones,
 } from "lucide-react";
 import type { City } from "@/data/cities";
 import type { Solution } from "@/data/solutions";
@@ -40,10 +37,11 @@ export default function SolutionPageClient({
   solution,
   allSolutions,
 }: SolutionPageClientProps) {
-  // Get icon component for the solution
+  // Get icon component for the solution - NOW INCLUDING AI SEARCH OPTIMIZATION
   const IconComponent =
     {
       "ai-voice-agents": Phone,
+      "ai-search-optimization": Search,
       chatbots: MessageCircle,
       "video-agents": Video,
       automation: Cog,
@@ -318,6 +316,7 @@ export default function SolutionPageClient({
             </div>
           </motion.div>
         </section>
+
         {/* Competitive Advantage */}
         <section className="mb-20">
           <motion.div
@@ -459,6 +458,7 @@ export default function SolutionPageClient({
                 const OtherIconComponent =
                   {
                     "ai-voice-agents": Phone,
+                    "ai-search-optimization": Search,
                     chatbots: MessageCircle,
                     "video-agents": Video,
                     automation: Cog,

@@ -106,6 +106,17 @@ const structuredData = {
           url: "https://agenxus.com/services/video-agents",
         },
       },
+
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "AI Search Optimization",
+          description:
+            "Get cited by ChatGPT, Perplexity, and Google AI while building lightning-fast websites",
+          url: "https://agenxus.com/services/ai-search-optimization",
+        },
+      },
       {
         "@type": "Offer",
         itemOffered: {

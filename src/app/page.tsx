@@ -17,7 +17,6 @@ import {
   Heart,
   Home,
   Scale,
-  GraduationCap,
   ChevronDown,
   CheckCircle,
   Calendar,
@@ -27,6 +26,7 @@ import {
   Star,
   Quote,
   Car,
+  UtensilsCrossed,
 } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
@@ -156,46 +156,24 @@ function TechLogo({ name }: TechLogoProps) {
   );
 }
 
-interface ContactItemProps {
-  icon: React.ReactNode;
-  title: string;
-  content: React.ReactNode;
-  link?: string;
-}
-
-function ContactItem({ icon, title, content, link }: ContactItemProps) {
-  const ItemContent = () => (
-    <motion.div
-      whileHover={{ x: 5 }}
-      className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300"
-    >
-      <div className="text-blue-400 flex-shrink-0 mt-1">{icon}</div>
-      <div>
-        <h4 className="font-semibold text-white mb-1">{title}</h4>
-        <div className="text-gray-300 text-sm leading-relaxed">{content}</div>
-      </div>
-    </motion.div>
-  );
-
-  if (link) {
-    return (
-      <a href={link} className="block">
-        <ItemContent />
-      </a>
-    );
-  }
-
-  return <ItemContent />;
-}
+// ContactItem component removed - not used in homepage
+// Can be added back to contact page if needed
 
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  href: string;
   delay: number;
 }
 
-function ServiceCard({ icon, title, description, delay }: ServiceCardProps) {
+function ServiceCard({
+  icon,
+  title,
+  description,
+  href,
+  delay,
+}: ServiceCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const controls = useAnimation();
@@ -244,70 +222,85 @@ function ServiceCard({ icon, title, description, delay }: ServiceCardProps) {
         }}
       />
 
-      <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 h-full overflow-hidden">
-        <motion.div
-          className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-transparent rounded-bl-full"
-          initial={{ scale: 0, rotate: -45 }}
-          animate={
-            isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }
-          }
-          transition={{ duration: 0.8, delay: delay + 0.3 }}
-        />
+      <Link href={href} className="block h-full">
+        <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 h-full overflow-hidden">
+          <motion.div
+            className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-blue-400/20 to-transparent rounded-bl-full"
+            initial={{ scale: 0, rotate: -45 }}
+            animate={
+              isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }
+            }
+            transition={{ duration: 0.8, delay: delay + 0.3 }}
+          />
 
-        <motion.div
-          className="text-blue-400 mb-4"
-          whileHover={{
-            scale: 1.1,
-            rotate: [0, -10, 10, 0],
-            transition: { duration: 0.5 },
-          }}
-        >
-          {icon}
-        </motion.div>
+          <motion.div
+            className="text-blue-400 mb-4"
+            whileHover={{
+              scale: 1.1,
+              rotate: [0, -10, 10, 0],
+              transition: { duration: 0.5 },
+            }}
+          >
+            {icon}
+          </motion.div>
 
-        <motion.h3
-          className="text-xl font-bold mb-3"
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-          transition={{ duration: 0.6, delay: delay + 0.2 }}
-        >
-          {title}
-        </motion.h3>
+          <motion.h3
+            className="text-xl font-bold mb-3"
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.6, delay: delay + 0.2 }}
+          >
+            {title}
+          </motion.h3>
 
-        <motion.p
-          className="text-gray-300 text-sm leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: delay + 0.4 }}
-        >
-          {description}
-        </motion.p>
+          <motion.p
+            className="text-gray-300 text-sm leading-relaxed mb-4"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8, delay: delay + 0.4 }}
+          >
+            {description}
+          </motion.p>
 
-        <motion.div
-          className="absolute bottom-2 right-2 w-2 h-2 bg-cyan-400/50 rounded-full"
-          animate={{
-            scale: [0.5, 1, 0.5],
-            opacity: [0.3, 0.8, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: delay,
-          }}
-        />
-      </div>
+          <div className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors mt-auto">
+            <span className="text-sm font-medium">Learn More</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+
+          <motion.div
+            className="absolute bottom-2 right-2 w-2 h-2 bg-cyan-400/50 rounded-full"
+            animate={{
+              scale: [0.5, 1, 0.5],
+              opacity: [0.3, 0.8, 0.3],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: delay,
+            }}
+          />
+        </div>
+      </Link>
     </motion.div>
   );
 }
+
 interface IndustryCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
+  href: string;
   delay: number;
 }
 
-function IndustryCard({ icon, title, description, delay }: IndustryCardProps) {
+function IndustryCard({
+  icon,
+  title,
+  description,
+  href,
+  delay,
+}: IndustryCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -339,38 +332,45 @@ function IndustryCard({ icon, title, description, delay }: IndustryCardProps) {
         transition={{ duration: 0.3 }}
       />
 
-      <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 h-full">
-        <motion.div
-          className="text-purple-400 mb-4"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: delay + 0.1 }}
-        >
-          {icon}
-        </motion.div>
+      <Link href={href} className="block h-full">
+        <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-all duration-300 h-full">
+          <motion.div
+            className="text-purple-400 mb-4"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4, delay: delay + 0.1 }}
+          >
+            {icon}
+          </motion.div>
 
-        <motion.h3
-          className="text-lg font-bold mb-3"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: delay + 0.2 }}
-        >
-          {title}
-        </motion.h3>
+          <motion.h3
+            className="text-lg font-bold mb-3"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4, delay: delay + 0.2 }}
+          >
+            {title}
+          </motion.h3>
 
-        <motion.p
-          className="text-gray-300 text-sm leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.4, delay: delay + 0.3 }}
-        >
-          {description}
-        </motion.p>
+          <motion.p
+            className="text-gray-300 text-sm leading-relaxed mb-4"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4, delay: delay + 0.3 }}
+          >
+            {description}
+          </motion.p>
 
-        <div className="absolute top-3 right-3">
-          <Sparkles className="w-3 h-3 text-purple-400/50" />
+          <div className="flex items-center gap-2 text-purple-400 group-hover:text-purple-300 transition-colors mt-auto">
+            <span className="text-sm font-medium">Learn More</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+
+          <div className="absolute top-3 right-3">
+            <Sparkles className="w-3 h-3 text-purple-400/50" />
+          </div>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 }
@@ -622,6 +622,7 @@ function FAQItem({ question, answer, delay }: FAQItemProps) {
     </motion.div>
   );
 }
+
 interface FloatingElementProps {
   delay: number;
   className: string;
@@ -903,29 +904,27 @@ export default function HomePage() {
               </span>
             </motion.a>
 
-            <motion.a
-              href="/contact"
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-white/20 text-white font-semibold py-4 px-8 rounded-full hover:bg-white/5 hover:border-white/50 transition-all duration-300 flex items-center gap-2"
-            >
-              <motion.div
-                animate={{
-                  rotate: [0, 10, -10, 0],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/contact"
+                className="border border-white/20 text-white font-semibold py-4 px-8 rounded-full hover:bg-white/5 hover:border-white/50 transition-all duration-300 flex items-center gap-2"
               >
-                <Mail className="w-4 h-4" />
-              </motion.div>
-              Contact Us
-            </motion.a>
+                <motion.div
+                  animate={{
+                    rotate: [0, 10, -10, 0],
+                    scale: [1, 1.1, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Mail className="w-4 h-4" />
+                </motion.div>
+                Contact Us
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -965,32 +964,60 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <ServiceCard
+              icon={<Zap className="w-8 h-8" />}
+              title="AI Search Optimization & Development"
+              description="Get cited by Google SGE, Perplexity, and Copilot with optimized entities, schema, and extractable content. Plus lightning-fast React/Next.js sites that score 95+ on PageSpeed Insights."
+              href="/services/ai-search-optimization"
+              delay={0.1}
+            />
             <ServiceCard
               icon={<Phone className="w-8 h-8" />}
               title="Voice Agents"
               description="Human-like phone assistants that handle incoming calls, qualify leads, answer questions, and book appointments."
-              delay={0.1}
+              href="/services/ai-voice-agents"
+              delay={0.2}
             />
             <ServiceCard
               icon={<MessageCircle className="w-8 h-8" />}
               title="AI Chat Agents"
               description="Conversational chatbots trained on your business data—capable of guiding users and converting visitors into qualified leads."
-              delay={0.2}
+              href="/services/chatbots"
+              delay={0.3}
             />
             <ServiceCard
               icon={<Video className="w-8 h-8" />}
               title="Video Agents"
               description="AI-generated video assistants that deliver personalized messages, guide product demos, or onboard customers."
-              delay={0.3}
+              href="/services/video-agents"
+              delay={0.4}
             />
             <ServiceCard
               icon={<Cog className="w-8 h-8" />}
               title="Automation Systems"
               description="Streamlined pipelines that connect your marketing, CRM, calendars, email, and more—running in the background."
-              delay={0.4}
+              href="/services/automation"
+              delay={0.5}
             />
           </div>
+
+          {/* View All Services CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              View All Services
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -1013,53 +1040,76 @@ export default function HomePage() {
               </span>
               <br />
               <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Focus On
+                Specialize In
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              We specialize in helping service-driven businesses that benefit
-              most from intelligent automation and conversational AI.
+              AI automation solutions tailored for industries that rely on
+              customer communication and service delivery.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <IndustryCard
-              icon={<Home className="w-8 h-8" />}
-              title="Home Services"
-              description="HVAC, plumbing, cleaning, pest control—where missed calls = missed revenue. Our agents answer instantly and book jobs."
+              icon={<Heart className="w-8 h-8" />}
+              title="Healthcare"
+              description="HIPAA-compliant AI for medical practices, clinics, and healthcare facilities. Automated scheduling, patient intake, and emergency triage."
+              href="/industries/healthcare"
               delay={0.1}
             />
             <IndustryCard
-              icon={<Heart className="w-8 h-8" />}
-              title="Healthcare & Wellness"
-              description="Chiropractors, dentists, med spas benefit from HIPAA-friendly automations and appointment agents."
+              icon={<Car className="w-8 h-8" />}
+              title="Automotive"
+              description="Dealership automation for inventory queries, test drive scheduling, service appointments, and 24/7 lead qualification."
+              href="/industries/automotive"
               delay={0.2}
             />
             <IndustryCard
               icon={<Building2 className="w-8 h-8" />}
-              title="Real Estate & Mortgage"
-              description="Capture leads day and night with agents that qualify buyers, schedule viewings, and explain listings."
+              title="Real Estate"
+              description="Instant lead response, property inquiries, showing coordination, and buyer qualification for agents and brokerages."
+              href="/industries/real-estate"
               delay={0.3}
             />
             <IndustryCard
-              icon={<Car className="w-8 h-8" />}
-              title="Auto Dealerships"
-              description="Never miss a sales or service call. AI agents handle inventory queries, book test drives, and schedule maintenance 24/7."
+              icon={<UtensilsCrossed className="w-8 h-8" />}
+              title="Restaurants"
+              description="Phone order automation, reservation management, dietary restriction handling, and delivery coordination for food service."
+              href="/industries/restaurants"
               delay={0.4}
             />
             <IndustryCard
               icon={<Scale className="w-8 h-8" />}
               title="Legal Services"
-              description="Law firms can automate lead intake, appointment setting, and initial qualification."
+              description="Client intake automation, appointment scheduling, case inquiry handling, and consultation booking for law firms."
+              href="/industries/legal-services"
               delay={0.5}
             />
             <IndustryCard
-              icon={<GraduationCap className="w-8 h-8" />}
-              title="Coaching & Education"
-              description="AI tutors and onboarding bots help coaches and course creators deliver personalized support."
+              icon={<Home className="w-8 h-8" />}
+              title="Home Services"
+              description="Emergency call handling, estimate scheduling, service coordination for contractors, plumbers, and home service providers."
+              href="/industries/home-services"
               delay={0.6}
             />
           </div>
+
+          {/* View All Industries CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <Link
+              href="/industries"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              View All Industries
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -1370,6 +1420,7 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
       {/* FAQ Section */}
       <section className="relative py-32 px-4 bg-gradient-to-b from-transparent to-gray-900/20">
         <div className="max-w-4xl mx-auto">
@@ -1439,7 +1490,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="relative py-32 px-4 bg-gradient-to-b from-gray-900/20 to-black">
         <div className="max-w-4xl mx-auto text-center">
@@ -1515,29 +1565,27 @@ export default function HomePage() {
               </span>
             </motion.a>
 
-            <motion.a
-              href="/contact"
-              whileHover={{
-                scale: 1.05,
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-white/30 text-white font-bold text-lg py-5 px-10 rounded-full hover:bg-white/10 hover:border-white/60 transition-all duration-300 flex items-center gap-3 min-w-[200px]"
-            >
-              <motion.div
-                animate={{
-                  rotate: [0, 15, -15, 0],
-                  scale: [1, 1.2, 1],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/contact"
+                className="border-2 border-white/30 text-white font-bold text-lg py-5 px-10 rounded-full hover:bg-white/10 hover:border-white/60 transition-all duration-300 flex items-center gap-3 min-w-[200px]"
               >
-                <Mail className="w-5 h-5" />
-              </motion.div>
-              Contact Us
-            </motion.a>
+                <motion.div
+                  animate={{
+                    rotate: [0, 15, -15, 0],
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Mail className="w-5 h-5" />
+                </motion.div>
+                Contact Us
+              </Link>
+            </motion.div>
           </motion.div>
 
           {/* Trust indicators */}

@@ -1,5 +1,3 @@
-// src/data/solutions.ts - Complete Enhanced Solutions Data
-
 export interface Solution {
   slug: string;
   name: string;
@@ -42,6 +40,141 @@ export interface Solution {
 }
 
 export const solutions: Solution[] = [
+  {
+    slug: "ai-search-optimization",
+    name: "AI Search Optimization & Development",
+    shortName: "AI Search Optimization",
+    tagline:
+      "Get cited by ChatGPT, Perplexity, and Google AI with lightning-fast websites",
+    description:
+      "Be the brand LLMs cite—not just the one that ranks. We engineer your content, schema, and entities so Google SGE, Perplexity, and Copilot reference you in their answers. Plus lightning-fast React/Next.js sites that score 95+ on PageSpeed Insights.",
+    longDescription:
+      "Answer Engine Optimization (AEO) ensures your business gets cited by ChatGPT, Google AI Overviews, Perplexity, and other AI search engines. Combined with high-performance website development using React/Next.js, we create the complete foundation for modern search visibility—from AI citations to blazing-fast user experiences.",
+    benefits: [
+      "Get cited by ChatGPT, Perplexity, and Google AI",
+      "Increase AI search visibility by 300%+",
+      "Lightning-fast websites (95+ PageSpeed score)",
+      "Higher quality traffic from AI citations",
+      "Future-proof your search strategy",
+      "Structured data for better AI understanding",
+      "Improved conversion rates from AI traffic",
+      "First-mover advantage in AI search",
+    ],
+    features: [
+      "Entity mapping and optimization",
+      "Extractable Q&A content blocks",
+      "Schema.org structured data implementation",
+      "llms.txt file optimization",
+      "Strategic internal linking",
+      "Local business profile optimization",
+      "React/Next.js website development",
+      "Core Web Vitals optimization",
+    ],
+    useCases: [
+      {
+        title: "Brand authority building",
+        description:
+          "Become the go-to source that AI engines consistently cite for your expertise",
+        industry: "Professional Services, Technology",
+      },
+      {
+        title: "Local business visibility",
+        description:
+          "Capture local searches through AI engines with optimized business profiles",
+        industry: "Healthcare, Legal Services, Home Services",
+      },
+      {
+        title: "Product/service positioning",
+        description:
+          "Ensure AI engines recommend your solutions when prospects ask for comparisons",
+        industry: "SaaS, E-commerce, Manufacturing",
+      },
+      {
+        title: "Thought leadership",
+        description:
+          "Get cited as the expert source for industry insights and best practices",
+        industry: "Consulting, Financial Services, Technology",
+      },
+      {
+        title: "Website performance optimization",
+        description:
+          "Fast-loading sites that rank better and convert AI traffic effectively",
+        industry: "All Industries",
+      },
+      {
+        title: "Zero-click search optimization",
+        description:
+          "Capture value from searches that don't result in traditional clicks",
+        industry: "All Industries",
+      },
+    ],
+    industries: [
+      "Professional Services",
+      "Healthcare",
+      "Technology",
+      "Legal Services",
+      "Financial Services",
+      "Real Estate",
+      "Manufacturing",
+      "E-commerce",
+      "All Industries",
+    ],
+    color: "from-emerald-500 to-teal-500",
+    stats: {
+      aiCitations: "+250%",
+      pageSpeed: "95+ PSI score",
+      trafficQuality: "3x higher conversion",
+      visibility: "+180% AI mentions",
+    },
+    marketInsights:
+      "57% of SERPs now feature AI Overviews, up from 25% in 2024. AI search traffic shows 23% lower bounce rates and higher conversion rates than traditional search traffic.",
+    competitiveAdvantage:
+      "While competitors focus only on traditional SEO, we optimize for the future of search—ensuring you're visible across both AI engines and traditional search results.",
+    roi: {
+      timeToValue: "4-6 weeks",
+      efficiency: "250% AI visibility increase",
+      costSavings: "$12,000+ annual marketing savings",
+    },
+    technical: {
+      integration: "Schema markup, llms.txt, React/Next.js development",
+      setup: "Content audit, entity mapping, technical implementation",
+      maintenance: "AI citation monitoring and ongoing optimization",
+    },
+    faqs: [
+      {
+        question: "What is AI Search Optimization (AEO)?",
+        answer:
+          "AEO is the practice of optimizing your content to get cited by AI search engines like ChatGPT, Google AI Overviews, and Perplexity. Instead of just ranking for keywords, we make your business the authoritative source AI engines reference when answering user questions.",
+      },
+      {
+        question: "How is this different from traditional SEO?",
+        answer:
+          "Traditional SEO focuses on ranking web pages for keywords. AEO focuses on getting your content cited in AI-generated answers. We combine both approaches plus high-performance web development to dominate all forms of search.",
+      },
+      {
+        question: "Will this replace my current SEO efforts?",
+        answer:
+          "No, AEO builds on SEO fundamentals. We enhance your existing strategy with AI-specific optimizations like entity mapping, structured Q&As, and schema markup while building faster, better-converting websites.",
+      },
+      {
+        question: "How do you track AI search performance?",
+        answer:
+          "We monitor brand citations across ChatGPT, Perplexity, Google AI, and other platforms. You'll get reports showing citation frequency, sentiment, and traffic quality from AI search sources.",
+      },
+      {
+        question: "Why combine this with website development?",
+        answer:
+          "Fast, well-structured websites get better AI citations and convert more visitors. Our React/Next.js sites score 95+ on PageSpeed Insights and are optimized for both AI engines and human users.",
+      },
+    ],
+    pricing: {
+      model: "Project + Monthly",
+      startingPrice: "$2,500",
+      enterprise: true,
+    },
+    cta: "Get Your Free AEO Audit",
+  },
+
   {
     slug: "ai-voice-agents",
     name: "AI Voice Agents",
@@ -115,6 +248,7 @@ export const solutions: Solution[] = [
       "Professional Services",
       "Technology",
       "Financial Services",
+      "Restaurants & Food Service",
     ],
     color: "from-blue-500 to-cyan-500",
     stats: {
@@ -240,6 +374,7 @@ export const solutions: Solution[] = [
       "Technology",
       "Financial Services",
       "Manufacturing",
+      "Restaurants & Food Service",
     ],
     color: "from-purple-500 to-pink-500",
     stats: {
@@ -291,7 +426,6 @@ export const solutions: Solution[] = [
     },
     cta: "See Your Chatbot in Action",
   },
-
   {
     slug: "video-agents",
     name: "AI Video Agents",
@@ -362,6 +496,7 @@ export const solutions: Solution[] = [
       "Real Estate",
       "Professional Services",
       "Manufacturing",
+      "Restaurants & Food Service",
     ],
     color: "from-green-500 to-emerald-500",
     stats: {
@@ -484,6 +619,7 @@ export const solutions: Solution[] = [
       "Financial Services",
       "Manufacturing",
       "Technology",
+      "Restaurants & Food Service",
     ],
     color: "from-orange-500 to-red-500",
     stats: {

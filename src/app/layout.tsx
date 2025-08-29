@@ -1,22 +1,10 @@
+"use client";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
-
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "production"
-      ? "https://agenxus.com"
-      : "http://localhost:3000"
-  ),
-  title: {
-    default: "Agenxus - AI Agents for Smarter Business",
-    template: "%s | Agenxus",
-  },
-  description:
-    "AI voice agents, chatbots, video agents, and process automation for modern businesses. Never miss another call or lead with 24/7 AI automation.",
-};
+import Image from "next/image";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +13,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <html lang="en">
       <body
@@ -42,11 +36,14 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <Link href="/">
-                <img
+              <Link href="/" onClick={closeMobileMenu}>
+                <Image
                   src="/images/logo.png"
                   alt="Agenxus Logo"
+                  width={200}
+                  height={80}
                   className="h-20 w-auto"
+                  priority
                 />
               </Link>
 
@@ -80,6 +77,17 @@ export default function RootLayout({
                   </Link>
                   <div className="absolute top-full left-0 mt-1 w-64 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                     <div className="p-2">
+                      <Link
+                        href="/services/ai-search-optimization"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">
+                          AI Search Optimization
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          Get cited by LLMs + fast sites
+                        </div>
+                      </Link>
                       <Link
                         href="/services/ai-voice-agents"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
@@ -177,6 +185,15 @@ export default function RootLayout({
                         </div>
                       </Link>
                       <Link
+                        href="/industries/restaurants"
+                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
+                      >
+                        <div className="font-medium">Restaurants</div>
+                        <div className="text-xs text-gray-500">
+                          Order & reservation automation
+                        </div>
+                      </Link>
+                      <Link
                         href="/industries/legal-services"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
                       >
@@ -192,15 +209,6 @@ export default function RootLayout({
                         <div className="font-medium">Home Services</div>
                         <div className="text-xs text-gray-500">
                           Service call automation
-                        </div>
-                      </Link>
-                      <Link
-                        href="/industries/professional-services"
-                        className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-lg transition-all text-sm"
-                      >
-                        <div className="font-medium">Professional Services</div>
-                        <div className="text-xs text-gray-500">
-                          Client management AI
                         </div>
                       </Link>
                       <div className="border-t border-gray-700 mt-2 pt-2">
@@ -221,6 +229,7 @@ export default function RootLayout({
                 >
                   Contact
                 </Link>
+
                 <a
                   href="https://cal.com/agenxus/discoverycall-30min"
                   target="_blank"
@@ -231,29 +240,40 @@ export default function RootLayout({
                 </a>
               </nav>
 
-              {/* MOBILE MENU - FIXED SCROLLING */}
+              {/* Mobile Menu */}
               <div className="md:hidden">
-                <input
-                  id="menu-toggle"
-                  type="checkbox"
-                  className="hidden peer"
-                />
-
                 {/* Hamburger Button */}
-                <label
-                  htmlFor="menu-toggle"
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="cursor-pointer flex flex-col items-center justify-center w-12 h-12 bg-white/10 rounded-xl border border-white/20"
                 >
-                  <span className="block w-6 h-0.5 bg-white mb-1"></span>
-                  <span className="block w-6 h-0.5 bg-white mb-1"></span>
-                  <span className="block w-6 h-0.5 bg-white"></span>
-                </label>
+                  <span
+                    className={`block w-6 h-0.5 bg-white mb-1 transition-all duration-300 ${
+                      isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+                    }`}
+                  ></span>
+                  <span
+                    className={`block w-6 h-0.5 bg-white mb-1 transition-all duration-300 ${
+                      isMobileMenuOpen ? "opacity-0" : ""
+                    }`}
+                  ></span>
+                  <span
+                    className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+                      isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                    }`}
+                  ></span>
+                </button>
 
-                {/* Mobile Dropdown - FIXED WITH PROPER SCROLLING */}
-                <div className="hidden peer-checked:block fixed top-24 left-0 right-0 h-[calc(100vh-6rem)] bg-gradient-to-b from-gray-900 via-blue-950 to-gray-900 border-t border-white/20 shadow-2xl overflow-y-auto">
+                {/* Mobile Dropdown */}
+                <div
+                  className={`${
+                    isMobileMenuOpen ? "block" : "hidden"
+                  } fixed top-24 left-0 right-0 h-[calc(100vh-6rem)] bg-gradient-to-b from-gray-900 via-blue-950 to-gray-900 border-t border-white/20 shadow-2xl overflow-y-auto`}
+                >
                   <div className="p-6 space-y-6">
                     <Link
                       href="/"
+                      onClick={closeMobileMenu}
                       className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
                     >
                       Home
@@ -265,31 +285,43 @@ export default function RootLayout({
                       </h3>
                       <div className="pl-4 space-y-3">
                         <Link
+                          href="/services/ai-search-optimization"
+                          onClick={closeMobileMenu}
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
+                        >
+                          AI Search Optimization & Development
+                        </Link>
+                        <Link
                           href="/services/ai-voice-agents"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           AI Voice Agents
                         </Link>
                         <Link
                           href="/services/chatbots"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           AI Chatbots
                         </Link>
                         <Link
                           href="/services/video-agents"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           AI Video Agents
                         </Link>
                         <Link
                           href="/services/automation"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Process Automation
                         </Link>
                         <Link
                           href="/services"
+                          onClick={closeMobileMenu}
                           className="block text-cyan-400 hover:text-cyan-300 py-2 transition-colors font-medium"
                         >
                           View All Services →
@@ -304,54 +336,49 @@ export default function RootLayout({
                       <div className="pl-4 space-y-3">
                         <Link
                           href="/industries/healthcare"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Healthcare
                         </Link>
                         <Link
                           href="/industries/automotive"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Automotive
                         </Link>
                         <Link
                           href="/industries/real-estate"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Real Estate
                         </Link>
                         <Link
+                          href="/industries/restaurants"
+                          onClick={closeMobileMenu}
+                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
+                        >
+                          Restaurants
+                        </Link>
+                        <Link
                           href="/industries/legal-services"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Legal Services
                         </Link>
                         <Link
                           href="/industries/home-services"
+                          onClick={closeMobileMenu}
                           className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
                         >
                           Home Services
                         </Link>
                         <Link
-                          href="/industries/professional-services"
-                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
-                        >
-                          Professional Services
-                        </Link>
-                        <Link
-                          href="/industries/financial-services"
-                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
-                        >
-                          Financial Services
-                        </Link>
-                        <Link
-                          href="/industries/technology"
-                          className="block text-gray-200 hover:text-cyan-400 py-2 transition-colors"
-                        >
-                          Technology
-                        </Link>
-                        <Link
                           href="/industries"
+                          onClick={closeMobileMenu}
                           className="block text-cyan-400 hover:text-cyan-300 py-2 transition-colors font-medium"
                         >
                           View All Industries →
@@ -361,22 +388,17 @@ export default function RootLayout({
 
                     <Link
                       href="/contact"
+                      onClick={closeMobileMenu}
                       className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
                     >
                       Contact
-                    </Link>
-
-                    <Link
-                      href="/locations"
-                      className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
-                    >
-                      Service Areas
                     </Link>
 
                     <a
                       href="https://cal.com/agenxus/discoverycall-30min"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={closeMobileMenu}
                       className="block w-full text-center px-6 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl mt-6 hover:from-blue-600 hover:to-cyan-600 transition-all"
                     >
                       Book Discovery Call
@@ -391,16 +413,18 @@ export default function RootLayout({
         {/* Main Content */}
         <main className="relative pt-24">{children}</main>
 
-        {/* Footer - Updated with proper service links */}
+        {/* Footer */}
         <footer className="py-16 px-6 bg-black/40 border-t border-white/10">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-5 gap-8 mb-8">
               {/* Company Info */}
               <div className="md:col-span-2">
                 <Link href="/">
-                  <img
+                  <Image
                     src="/images/logo.png"
                     alt="Agenxus Logo"
+                    width={120}
+                    height={48}
                     className="h-12 w-auto mb-4"
                   />
                 </Link>
@@ -464,10 +488,18 @@ export default function RootLayout({
                 </div>
               </div>
 
-              {/* Services - Updated with proper links */}
+              {/* Services */}
               <div>
                 <h3 className="font-semibold text-white mb-4">Services</h3>
                 <ul className="space-y-2 text-gray-400">
+                  <li>
+                    <Link
+                      href="/services/ai-search-optimization"
+                      className="hover:text-white transition-colors text-sm"
+                    >
+                      AI Search Optimization
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       href="/services/ai-voice-agents"
@@ -511,7 +543,7 @@ export default function RootLayout({
                 </ul>
               </div>
 
-              {/* Industries - Updated with proper links */}
+              {/* Industries */}
               <div>
                 <h3 className="font-semibold text-white mb-4">Industries</h3>
                 <ul className="space-y-2 text-gray-400">
@@ -537,6 +569,14 @@ export default function RootLayout({
                       className="hover:text-white transition-colors text-sm"
                     >
                       Real Estate
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/industries/restaurants"
+                      className="hover:text-white transition-colors text-sm"
+                    >
+                      Restaurants
                     </Link>
                   </li>
                   <li>
@@ -623,8 +663,6 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
-
-        <Analytics />
       </body>
     </html>
   );

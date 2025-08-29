@@ -8,6 +8,7 @@ import {
   MessageCircle,
   Video,
   Cog,
+  Search,
   ArrowRight,
   CheckCircle,
   Settings,
@@ -441,6 +442,123 @@ export default function ServicesClient() {
               gradient="from-blue-500 to-cyan-500"
               delay={0.1}
             />
+
+            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+              <ServiceCard
+                icon={<Phone className="w-10 h-10" />}
+                title="AI Voice Agents"
+                description="Human-like phone assistants that answer every call, qualify leads, and book appointments 24/7 without human intervention."
+                features={[
+                  "Never miss a call",
+                  "Qualify leads instantly",
+                  "Book appointments automatically",
+                  "Handle multiple languages",
+                  "CRM integration",
+                  "Natural conversation flow",
+                ]}
+                stats={{
+                  efficiency: "99%+ uptime",
+                  conversion: "40% more appointments",
+                  response: "< 2 second response time",
+                }}
+                ctaText="Learn More About Voice Agents"
+                ctaLink="/services/ai-voice-agents"
+                gradient="from-blue-500 to-cyan-500"
+                delay={0.1}
+              />
+
+              <ServiceCard
+                icon={<MessageCircle className="w-10 h-10" />}
+                title="AI Chatbots"
+                description="Intelligent website chatbots that engage visitors, answer questions, and convert leads while your team focuses on closing deals."
+                features={[
+                  "24/7 website coverage",
+                  "Instant lead capture",
+                  "FAQ automation",
+                  "Seamless handoffs",
+                  "Multi-language support",
+                  "Analytics dashboard",
+                ]}
+                stats={{
+                  efficiency: "3x faster responses",
+                  conversion: "78% engagement rate",
+                  response: "24/7 availability",
+                }}
+                ctaText="Learn More About Chatbots"
+                ctaLink="/services/chatbots"
+                gradient="from-purple-500 to-pink-500"
+                delay={0.2}
+              />
+
+              <ServiceCard
+                icon={<Video className="w-10 h-10" />}
+                title="AI Video Agents"
+                description="AI-powered video assistants that deliver personalized messages, product demos, and customer onboarding at scale."
+                features={[
+                  "Personalized video messages",
+                  "Scalable demonstrations",
+                  "Interactive onboarding",
+                  "Measurable engagement",
+                  "Custom avatar creation",
+                  "Multi-language videos",
+                ]}
+                stats={{
+                  efficiency: "95% watch rate",
+                  conversion: "85% retention improvement",
+                  response: "4x higher engagement",
+                }}
+                ctaText="Learn More About Video Agents"
+                ctaLink="/services/video-agents"
+                gradient="from-green-500 to-emerald-500"
+                delay={0.3}
+              />
+
+              <ServiceCard
+                icon={<Cog className="w-10 h-10" />}
+                title="Process Automation"
+                description="End-to-end workflow automation that connects your tools, eliminates manual tasks, and scales your operations efficiently."
+                features={[
+                  "Eliminate manual work",
+                  "Connect existing tools",
+                  "Scale without hiring",
+                  "Reduce human error",
+                  "API integrations",
+                  "Performance monitoring",
+                ]}
+                stats={{
+                  efficiency: "15+ hours saved/week",
+                  conversion: "99.8% accuracy",
+                  response: "340% ROI",
+                }}
+                ctaText="Learn More About Automation"
+                ctaLink="/services/automation"
+                gradient="from-orange-500 to-red-500"
+                delay={0.4}
+              />
+
+              <ServiceCard
+                icon={<Search className="w-10 h-10" />}
+                title="AI Search Optimization"
+                description="Get cited by ChatGPT, Perplexity, and Google AI while building lightning-fast websites that score 95+ on PageSpeed."
+                features={[
+                  "AI engine citations",
+                  "95+ PageSpeed score",
+                  "Structured data markup",
+                  "Entity optimization",
+                  "React/Next.js development",
+                  "Performance monitoring",
+                ]}
+                stats={{
+                  efficiency: "+250% AI citations",
+                  conversion: "3x higher conversion",
+                  response: "+180% AI visibility",
+                }}
+                ctaText="Learn More About AEO"
+                ctaLink="/services/ai-search-optimization"
+                gradient="from-emerald-500 to-teal-500"
+                delay={0.5}
+              />
+            </div>
 
             <ServiceCard
               icon={<MessageCircle className="w-10 h-10" />}

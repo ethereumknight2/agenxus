@@ -1,12 +1,14 @@
 import { MetadataRoute } from "next";
 import { cities, solutions } from "@/data/cities";
+import { INDUSTRIES } from "./locations/registry";
+import { POSTS } from "./blog/posts";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://agenxus.com";
 
 // Dates
 const TODAY = new Date();
-const LEGAL_LAST_MODIFIED = "2025-08-01"; // update when you change Privacy/Terms
+const LEGAL_LAST_MODIFIED = "2025-08-01";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // 1) Core pages
@@ -65,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // 3) Individual service pages - These solve the duplicate content issue
+  // 3) Individual service pages - Now includes AI Search Optimization
   const serviceDetailPages: MetadataRoute.Sitemap = solutions.map(
     (solution) => ({
       url: `${SITE_URL}/services/${solution.slug}`,
@@ -83,7 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // 5) City + Solution pages - Specific solution in specific city
+  // 5) City + Solution pages - Now dynamically includes all solutions
   const citySolutionPages: MetadataRoute.Sitemap = [];
   for (const city of cities) {
     for (const solution of solutions) {
@@ -96,58 +98,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // 6) Industry hub pages - Top-level industry pages
-  const industries = [
-    "healthcare",
-    "automotive",
-    "real-estate",
-    "legal-services",
-    "home-services",
-    "professional-services",
-    "financial-services",
-    "technology",
-    "manufacturing",
-    "retail",
-  ];
-
-  const industryHubPages: MetadataRoute.Sitemap = industries.map(
-    (industry) => ({
-      url: `${SITE_URL}/industries/${industry}`,
+  // 6) Industry hub pages - Published industries only
+  const industryHubPages: MetadataRoute.Sitemap = Object.entries(INDUSTRIES)
+    .filter(([, industry]) => industry.published)
+    .map(([industryKey]) => ({
+      url: `${SITE_URL}/industries/${industryKey}`,
       lastModified: TODAY,
       changeFrequency: "monthly" as const,
       priority: 0.75,
-    })
-  );
+    }));
 
-  // 7) City + Industry pages - How ALL solutions help specific industry in specific city
+  // 7) City + Industry pages - PUBLISHED INDUSTRIES ONLY
   const cityIndustryPages: MetadataRoute.Sitemap = [];
   for (const city of cities) {
-    for (const industry of industries) {
-      cityIndustryPages.push({
-        url: `${SITE_URL}/locations/${city.slug}/${industry}`,
-        lastModified: TODAY,
-        changeFrequency: "monthly" as const,
-        priority: 0.7,
-      });
-    }
+    Object.entries(INDUSTRIES).forEach(([industryKey, industry]) => {
+      if (industry.published) {
+        // Only include published industries
+        cityIndustryPages.push({
+          url: `${SITE_URL}/locations/${city.slug}/${industryKey}`,
+          lastModified: TODAY,
+          changeFrequency: "monthly" as const,
+          priority: 0.7,
+        });
+      }
+    });
   }
 
-  // 8) Special industry pages that already exist
-  const specialPages: MetadataRoute.Sitemap = [
-    {
-      url: `${SITE_URL}/industries/automotive`,
-      lastModified: TODAY,
-      changeFrequency: "monthly",
-      priority: 0.8, // Higher priority since you have detailed content
-    },
-  ];
-
-  // 9) Blog/Resource pages (if you add them later)
+  // 8) Blog/Resource pages
   const resourcePages: MetadataRoute.Sitemap = [
-    // Add blog posts, case studies, etc. here when created
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    },
+    ...POSTS.map((p) => ({
+      url: `${SITE_URL}/blog/${p.slug}`,
+      lastModified: new Date(p.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 
-  // Debug: Log total pages for verification
+  // Combine all pages
   const totalPages = [
     ...core,
     ...servicesPages,
@@ -156,10 +149,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...citySolutionPages,
     ...industryHubPages,
     ...cityIndustryPages,
-    ...specialPages,
     ...resourcePages,
   ];
 
+  // Debug logging
   console.log(`Generated ${totalPages.length} pages in sitemap:`);
   console.log(`- Core pages: ${core.length}`);
   console.log(
@@ -167,8 +160,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
   console.log(`- City pages: ${cityPages.length}`);
   console.log(`- City+Solution pages: ${citySolutionPages.length}`);
-  console.log(`- Industry pages: ${industryHubPages.length}`);
+  console.log(`- Industry hub pages: ${industryHubPages.length}`);
   console.log(`- City+Industry pages: ${cityIndustryPages.length}`);
+  console.log(`- Resource pages: ${resourcePages.length}`);
 
   return totalPages;
 }
@@ -184,7 +178,7 @@ export function validateSitemap() {
   if (duplicates.length > 0) {
     console.error("Duplicate URLs found in sitemap:", duplicates);
   } else {
-    console.log("✅ No duplicate URLs in sitemap");
+    console.log("No duplicate URLs in sitemap");
   }
 
   // Check for proper URL structure
@@ -192,7 +186,7 @@ export function validateSitemap() {
   if (invalidUrls.length > 0) {
     console.error("Invalid URLs found:", invalidUrls);
   } else {
-    console.log("✅ All URLs have correct base URL");
+    console.log("All URLs have correct base URL");
   }
 
   return {
