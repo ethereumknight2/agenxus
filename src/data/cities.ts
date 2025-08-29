@@ -845,6 +845,632 @@ export const cities: City[] = [
     lat: 40.6936,
     lng: -89.589,
   },
+  // Complete data for all 9 new cities with all required properties
+
+  {
+    slug: "joliet",
+    name: "Joliet",
+    state: "IL",
+    population: "150,362",
+    metro: "Chicago Metro",
+    description:
+      "A historic city in Will County known for its diverse economy, strategic location between Chicago and the Illinois River, and strong manufacturing base.",
+    businessContext:
+      "Joliet's economy centers on manufacturing, logistics, healthcare, and retail. The city's proximity to major transportation corridors makes it a hub for distribution and warehousing operations.",
+    competitiveContext:
+      "Joliet competes with other Chicago suburbs for manufacturing and logistics businesses, with advantages in transportation access and lower operating costs compared to downtown Chicago.",
+    neighborhoods: [
+      "Downtown Joliet",
+      "Cathedral Area",
+      "Fairmont",
+      "Nowell Park",
+      "Ridgewood",
+      "Prestwick",
+      "Wesmere Lakes",
+    ],
+    industries: [
+      "Manufacturing",
+      "Healthcare & Medical",
+      "Logistics & Transportation",
+      "Retail",
+      "Professional Services",
+      "Automotive Services",
+    ],
+    industryTrends: [
+      "Growing logistics and e-commerce fulfillment sector",
+      "Manufacturing automation adoption increasing",
+      "Healthcare services expanding with population growth",
+      "Small business digitization accelerating",
+    ],
+    keywordFocus: {
+      primary: "AI automation Joliet",
+      secondary: [
+        "Joliet business automation",
+        "AI services Joliet IL",
+        "automated systems Joliet",
+      ],
+      longTail: [
+        "automated customer service Joliet",
+        "AI voice agents Joliet Illinois",
+        "business process automation Joliet",
+      ],
+      highValue: [
+        "Joliet AI solutions",
+        "business automation Joliet",
+        "AI implementation Joliet",
+      ],
+      local: [
+        "Joliet IL AI",
+        "automation services Joliet",
+        "AI technology Joliet",
+      ],
+      voiceSearch: [
+        "AI automation near me Joliet",
+        "best AI services Joliet",
+        "automated phone system Joliet",
+      ],
+    },
+    localStats: {
+      businesses: "4,200+",
+      avgResponse: "3.2 min",
+      marketGrowth: "8.4%",
+      phoneVolume: "High",
+    },
+    lat: 41.525,
+    lng: -88.0817,
+  },
+  {
+    slug: "elgin",
+    name: "Elgin",
+    state: "IL",
+    population: "114,797",
+    metro: "Chicago Metro",
+    description:
+      "A diverse city in Kane County known for its historic downtown, strong educational institutions, and growing technology sector.",
+    businessContext:
+      "Elgin's business environment features manufacturing, healthcare, education, and emerging technology companies. The city actively supports small business development and innovation.",
+    competitiveContext:
+      "Elgin competes with Kane County communities for tech and manufacturing businesses, leveraging its educated workforce and infrastructure investments.",
+    neighborhoods: [
+      "Downtown Elgin",
+      "Highlands of Elgin",
+      "Bowes Creek",
+      "The Meadows",
+      "Timber Creek",
+      "Wing Park",
+      "Northeast Elgin",
+    ],
+    industries: [
+      "Manufacturing",
+      "Healthcare & Medical",
+      "Education",
+      "Technology",
+      "Professional Services",
+      "Retail",
+    ],
+    industryTrends: [
+      "Technology sector growth and startup incubation",
+      "Advanced manufacturing expansion",
+      "Healthcare system modernization",
+      "Educational technology adoption",
+    ],
+    keywordFocus: {
+      primary: "AI automation Elgin",
+      secondary: [
+        "Elgin business automation",
+        "AI services Elgin IL",
+        "automated solutions Elgin",
+      ],
+      longTail: [
+        "automated customer service Elgin",
+        "AI voice agents Elgin Illinois",
+        "business automation Elgin",
+      ],
+      highValue: [
+        "Elgin AI solutions",
+        "automation services Elgin",
+        "AI technology Elgin",
+      ],
+      local: ["Elgin IL AI", "business AI Elgin", "Elgin automation"],
+      voiceSearch: [
+        "AI automation near me Elgin",
+        "best AI services Elgin",
+        "automated phone system Elgin",
+      ],
+    },
+    localStats: {
+      businesses: "3,800+",
+      avgResponse: "3.5 min",
+      marketGrowth: "7.2%",
+      phoneVolume: "Medium-High",
+    },
+    lat: 42.0354,
+    lng: -88.2826,
+  },
+  {
+    slug: "springfield",
+    name: "Springfield",
+    state: "IL",
+    population: "114,394",
+    metro: "Springfield Metro",
+    description:
+      "Illinois' capital city, rich in history and government services, with a strong healthcare and professional services sector.",
+    businessContext:
+      "As the state capital, Springfield's economy is driven by government, healthcare, education, and professional services. The city offers unique opportunities for businesses serving public sector clients.",
+    competitiveContext:
+      "Springfield's position as state capital provides advantages in government contracting and professional services, competing with other state capitals for public sector business.",
+    neighborhoods: [
+      "Downtown Springfield",
+      "Enos Park",
+      "Harvard Park",
+      "Westchester",
+      "Chatham Road",
+      "Sherman",
+      "Jerome",
+    ],
+    industries: [
+      "Government Services",
+      "Healthcare & Medical",
+      "Legal Services",
+      "Professional Services",
+      "Education",
+      "Tourism & Hospitality",
+    ],
+    industryTrends: [
+      "Government digital transformation initiatives",
+      "Healthcare technology modernization",
+      "Legal tech adoption accelerating",
+      "Tourism industry digital marketing growth",
+    ],
+    keywordFocus: {
+      primary: "AI automation Springfield",
+      secondary: [
+        "Springfield business automation",
+        "AI services Springfield IL",
+        "government AI Springfield",
+      ],
+      longTail: [
+        "automated customer service Springfield",
+        "AI voice agents Springfield Illinois",
+        "Springfield business AI",
+      ],
+      highValue: [
+        "Springfield AI solutions",
+        "automation Springfield",
+        "AI technology Springfield",
+      ],
+      local: ["Springfield IL AI", "capital city AI", "Springfield automation"],
+      voiceSearch: [
+        "AI automation near me Springfield",
+        "best AI services Springfield",
+        "automated phone system Springfield",
+      ],
+    },
+    localStats: {
+      businesses: "3,500+",
+      avgResponse: "2.8 min",
+      marketGrowth: "6.8%",
+      phoneVolume: "Medium",
+    },
+    lat: 39.7817,
+    lng: -89.6501,
+  },
+  {
+    slug: "waukegan",
+    name: "Waukegan",
+    state: "IL",
+    population: "89,321",
+    metro: "Chicago Metro",
+    description:
+      "A diverse lakefront city in Lake County known for its port, manufacturing heritage, and growing service sector.",
+    businessContext:
+      "Waukegan's economy includes manufacturing, healthcare, retail, and logistics. The city's Lake Michigan location and transportation access make it attractive for distribution businesses.",
+    competitiveContext:
+      "Waukegan competes with other Lake County cities for manufacturing and logistics businesses, with advantages in lakefront access and transportation infrastructure.",
+    neighborhoods: [
+      "Downtown Waukegan",
+      "Lakefront District",
+      "Little Fort",
+      "Amstutz Expressway",
+      "Park City",
+      "North Chicago border",
+      "Greenwood",
+    ],
+    industries: [
+      "Manufacturing",
+      "Healthcare & Medical",
+      "Logistics & Transportation",
+      "Retail",
+      "Professional Services",
+      "Marine Services",
+    ],
+    industryTrends: [
+      "Manufacturing technology upgrades",
+      "Healthcare consolidation and expansion",
+      "Logistics automation increasing",
+      "Small business digital adoption",
+    ],
+    keywordFocus: {
+      primary: "AI automation Waukegan",
+      secondary: [
+        "Waukegan business automation",
+        "AI services Waukegan IL",
+        "automated systems Waukegan",
+      ],
+      longTail: [
+        "automated customer service Waukegan",
+        "AI voice agents Waukegan Illinois",
+        "Waukegan business AI",
+      ],
+      highValue: [
+        "Waukegan AI solutions",
+        "automation Waukegan",
+        "AI technology Waukegan",
+      ],
+      local: ["Waukegan IL AI", "Lake County AI", "Waukegan automation"],
+      voiceSearch: [
+        "AI automation near me Waukegan",
+        "best AI services Waukegan",
+        "automated phone system Waukegan",
+      ],
+    },
+    localStats: {
+      businesses: "2,900+",
+      avgResponse: "3.8 min",
+      marketGrowth: "6.2%",
+      phoneVolume: "Medium",
+    },
+    lat: 42.3636,
+    lng: -87.8448,
+  },
+  {
+    slug: "champaign",
+    name: "Champaign",
+    state: "IL",
+    population: "88,302",
+    metro: "Champaign-Urbana Metro",
+    description:
+      "A vibrant college town home to the University of Illinois, with a strong technology and research sector.",
+    businessContext:
+      "Champaign's economy benefits from the university's presence, creating opportunities in technology, research, healthcare, and services. The city has a growing startup ecosystem.",
+    competitiveContext:
+      "Champaign leverages University of Illinois resources to compete for tech and research businesses, offering access to top talent and innovation infrastructure.",
+    neighborhoods: [
+      "Downtown Champaign",
+      "Campustown",
+      "Garden Hills",
+      "Meadowbrook",
+      "Savoy border",
+      "Windsor Road",
+      "Parkland College area",
+    ],
+    industries: [
+      "Education",
+      "Technology & Research",
+      "Healthcare & Medical",
+      "Professional Services",
+      "Retail",
+      "Startups & Innovation",
+    ],
+    industryTrends: [
+      "University research commercialization growing",
+      "Tech startup ecosystem expanding",
+      "Healthcare innovation increasing",
+      "Student-focused service digitization",
+    ],
+    keywordFocus: {
+      primary: "AI automation Champaign",
+      secondary: [
+        "Champaign business automation",
+        "AI services Champaign IL",
+        "university AI Champaign",
+      ],
+      longTail: [
+        "automated customer service Champaign",
+        "AI voice agents Champaign Illinois",
+        "Champaign tech AI",
+      ],
+      highValue: [
+        "Champaign AI solutions",
+        "automation Champaign",
+        "AI research Champaign",
+      ],
+      local: ["Champaign IL AI", "UIUC AI", "Champaign automation"],
+      voiceSearch: [
+        "AI automation near me Champaign",
+        "best AI services Champaign",
+        "automated phone system Champaign",
+      ],
+    },
+    localStats: {
+      businesses: "3,200+",
+      avgResponse: "2.5 min",
+      marketGrowth: "9.1%",
+      phoneVolume: "Medium-High",
+    },
+    lat: 40.1164,
+    lng: -88.2434,
+  },
+  {
+    slug: "cicero",
+    name: "Cicero",
+    state: "IL",
+    population: "85,268",
+    metro: "Chicago Metro",
+    description:
+      "A diverse suburb adjacent to Chicago known for its strong Hispanic community and mix of residential and commercial areas.",
+    businessContext:
+      "Cicero's business landscape includes retail, services, small manufacturing, and healthcare. The town's proximity to Chicago provides access to larger markets while maintaining lower operating costs.",
+    competitiveContext:
+      "Cicero competes with other inner-ring Chicago suburbs by offering lower costs and strong community connections while maintaining access to Chicago's resources.",
+    neighborhoods: [
+      "Cicero Center",
+      "Morton East",
+      "Hawthorne Race Course area",
+      "Laramie Avenue corridor",
+      "Cermak Road",
+      "Oak Park border",
+      "Berwyn border",
+    ],
+    industries: [
+      "Retail",
+      "Healthcare & Medical",
+      "Professional Services",
+      "Small Manufacturing",
+      "Automotive Services",
+      "Food Services",
+    ],
+    industryTrends: [
+      "Small business technology adoption",
+      "Healthcare access expansion",
+      "Retail modernization efforts",
+      "Community-focused service growth",
+    ],
+    keywordFocus: {
+      primary: "AI automation Cicero",
+      secondary: [
+        "Cicero business automation",
+        "AI services Cicero IL",
+        "automated systems Cicero",
+      ],
+      longTail: [
+        "automated customer service Cicero",
+        "AI voice agents Cicero Illinois",
+        "Cicero business AI",
+      ],
+      highValue: [
+        "Cicero AI solutions",
+        "automation Cicero",
+        "AI technology Cicero",
+      ],
+      local: ["Cicero IL AI", "Cook County AI", "Cicero automation"],
+      voiceSearch: [
+        "AI automation near me Cicero",
+        "best AI services Cicero",
+        "automated phone system Cicero",
+      ],
+    },
+    localStats: {
+      businesses: "2,400+",
+      avgResponse: "3.6 min",
+      marketGrowth: "5.8%",
+      phoneVolume: "Medium",
+    },
+    lat: 41.8456,
+    lng: -87.7539,
+  },
+  {
+    slug: "bloomington",
+    name: "Bloomington",
+    state: "IL",
+    population: "78,680",
+    metro: "Bloomington-Normal Metro",
+    description:
+      "A thriving city known for insurance headquarters, agriculture, and Illinois State University proximity, offering diverse business opportunities.",
+    businessContext:
+      "Bloomington's economy is anchored by insurance companies, agriculture, healthcare, and education. The city provides a stable business environment with access to skilled workforce.",
+    competitiveContext:
+      "Bloomington competes with other central Illinois cities by leveraging major insurance company presence and agricultural sector strength for business development.",
+    neighborhoods: [
+      "Downtown Bloomington",
+      "Miller Park",
+      "Bloomington Country Club area",
+      "West Bloomington",
+      "East Grove",
+      "Southeast Bloomington",
+      "Normal border",
+    ],
+    industries: [
+      "Insurance & Financial Services",
+      "Agriculture",
+      "Healthcare & Medical",
+      "Professional Services",
+      "Education Support",
+      "Manufacturing",
+    ],
+    industryTrends: [
+      "Insurance technology modernization",
+      "Agricultural technology integration",
+      "Healthcare system expansion",
+      "Professional services digitization",
+    ],
+    keywordFocus: {
+      primary: "AI automation Bloomington",
+      secondary: [
+        "Bloomington business automation",
+        "AI services Bloomington IL",
+        "insurance AI Bloomington",
+      ],
+      longTail: [
+        "automated customer service Bloomington",
+        "AI voice agents Bloomington Illinois",
+        "Bloomington business AI",
+      ],
+      highValue: [
+        "Bloomington AI solutions",
+        "automation Bloomington",
+        "AI technology Bloomington",
+      ],
+      local: [
+        "Bloomington IL AI",
+        "McLean County AI",
+        "Bloomington automation",
+      ],
+      voiceSearch: [
+        "AI automation near me Bloomington",
+        "best AI services Bloomington",
+        "automated phone system Bloomington",
+      ],
+    },
+    localStats: {
+      businesses: "2,800+",
+      avgResponse: "2.9 min",
+      marketGrowth: "7.5%",
+      phoneVolume: "Medium",
+    },
+    lat: 40.4842,
+    lng: -88.9937,
+  },
+  {
+    slug: "evanston",
+    name: "Evanston",
+    state: "IL",
+    population: "78,110",
+    metro: "Chicago Metro",
+    description:
+      "An affluent lakefront city home to Northwestern University, known for its educated workforce and diverse business environment.",
+    businessContext:
+      "Evanston's economy benefits from Northwestern University, healthcare systems, technology companies, and professional services. The city offers a highly educated workforce and proximity to Chicago.",
+    competitiveContext:
+      "Evanston competes with other North Shore communities by offering university resources, educated workforce, and premium lakefront location for high-value businesses.",
+    neighborhoods: [
+      "Downtown Evanston",
+      "Northwestern campus area",
+      "Lakeshore District",
+      "Central Street",
+      "South Evanston",
+      "West Evanston",
+      "Wilmette border",
+    ],
+    industries: [
+      "Education",
+      "Healthcare & Medical",
+      "Technology",
+      "Professional Services",
+      "Research & Development",
+      "Non-profit",
+    ],
+    industryTrends: [
+      "University-industry research partnerships growing",
+      "Healthcare innovation accelerating",
+      "Technology sector expansion",
+      "Non-profit digital transformation",
+    ],
+    keywordFocus: {
+      primary: "AI automation Evanston",
+      secondary: [
+        "Evanston business automation",
+        "AI services Evanston IL",
+        "Northwestern AI Evanston",
+      ],
+      longTail: [
+        "automated customer service Evanston",
+        "AI voice agents Evanston Illinois",
+        "Evanston tech AI",
+      ],
+      highValue: [
+        "Evanston AI solutions",
+        "automation Evanston",
+        "AI research Evanston",
+      ],
+      local: ["Evanston IL AI", "North Shore AI", "Evanston automation"],
+      voiceSearch: [
+        "AI automation near me Evanston",
+        "best AI services Evanston",
+        "automated phone system Evanston",
+      ],
+    },
+    localStats: {
+      businesses: "2,600+",
+      avgResponse: "2.2 min",
+      marketGrowth: "8.8%",
+      phoneVolume: "Medium-High",
+    },
+    lat: 42.0451,
+    lng: -87.6877,
+  },
+  {
+    slug: "arlington-heights",
+    name: "Arlington Heights",
+    state: "IL",
+    population: "77,676",
+    metro: "Chicago Metro",
+    description:
+      "An affluent northwest suburb known for excellent schools, strong business district, and high quality of life.",
+    businessContext:
+      "Arlington Heights features a diverse economy with corporate headquarters, professional services, healthcare, and retail. The city is known for its business-friendly environment and skilled workforce.",
+    competitiveContext:
+      "Arlington Heights competes with other affluent northwest suburbs by offering corporate-friendly policies, excellent infrastructure, and access to highly educated workforce.",
+    neighborhoods: [
+      "Downtown Arlington Heights",
+      "Arlington Park area",
+      "Scarsdale",
+      "Thomas Middle School area",
+      "Rand Road corridor",
+      "Rolling Meadows border",
+      "Mount Prospect border",
+    ],
+    industries: [
+      "Corporate Services",
+      "Healthcare & Medical",
+      "Professional Services",
+      "Technology",
+      "Retail",
+      "Financial Services",
+    ],
+    industryTrends: [
+      "Corporate headquarters technology upgrades",
+      "Healthcare system integration",
+      "Professional services automation",
+      "Retail experience enhancement",
+    ],
+    keywordFocus: {
+      primary: "AI automation Arlington Heights",
+      secondary: [
+        "Arlington Heights business automation",
+        "AI services Arlington Heights IL",
+        "corporate AI Arlington Heights",
+      ],
+      longTail: [
+        "automated customer service Arlington Heights",
+        "AI voice agents Arlington Heights Illinois",
+        "Arlington Heights business AI",
+      ],
+      highValue: [
+        "Arlington Heights AI solutions",
+        "automation Arlington Heights",
+        "AI technology Arlington Heights",
+      ],
+      local: [
+        "Arlington Heights IL AI",
+        "Northwest suburbs AI",
+        "Arlington Heights automation",
+      ],
+      voiceSearch: [
+        "AI automation near me Arlington Heights",
+        "best AI services Arlington Heights",
+        "automated phone system Arlington Heights",
+      ],
+    },
+    localStats: {
+      businesses: "3,100+",
+      avgResponse: "2.1 min",
+      marketGrowth: "9.3%",
+      phoneVolume: "Medium-High",
+    },
+    lat: 42.0883,
+    lng: -87.9806,
+  },
 ];
 
 // Helper functions

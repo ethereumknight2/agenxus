@@ -224,6 +224,13 @@ export default function RootLayout({
                 </div>
 
                 <Link
+                  href="/blog"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Blog
+                </Link>
+
+                <Link
                   href="/contact"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
@@ -263,7 +270,6 @@ export default function RootLayout({
                     }`}
                   ></span>
                 </button>
-
                 {/* Mobile Dropdown */}
                 <div
                   className={`${
@@ -385,6 +391,14 @@ export default function RootLayout({
                         </Link>
                       </div>
                     </div>
+
+                    <Link
+                      href="/blog"
+                      onClick={closeMobileMenu}
+                      className="block text-white text-lg py-2 hover:text-cyan-400 transition-colors"
+                    >
+                      Blog
+                    </Link>
 
                     <Link
                       href="/contact"
@@ -610,6 +624,14 @@ export default function RootLayout({
               <div>
                 <h3 className="font-semibold text-white mb-4">Company</h3>
                 <ul className="space-y-2 text-gray-400">
+                  <li>
+                    <Link
+                      href="/blog"
+                      className="hover:text-white transition-colors text-sm"
+                    >
+                      Blog
+                    </Link>
+                  </li>
                   <li>
                     <Link
                       href="/contact"

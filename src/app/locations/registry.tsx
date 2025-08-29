@@ -5,7 +5,17 @@ export type CityKey =
   | "aurora"
   | "schaumburg"
   | "rockford"
-  | "peoria";
+  | "peoria"
+  | "joliet"
+  | "elgin"
+  | "springfield"
+  | "waukegan"
+  | "champaign"
+  | "cicero"
+  | "bloomington"
+  | "evanston"
+  | "arlington-heights";
+
 export type IndustryKey =
   | "automotive"
   | "healthcare"
@@ -20,12 +30,24 @@ export type IndustryKey =
   | "restaurants";
 
 export const CITIES: Record<CityKey, { name: string; state: string }> = {
+  // Existing cities
   chicago: { name: "Chicago", state: "IL" },
   naperville: { name: "Naperville", state: "IL" },
   aurora: { name: "Aurora", state: "IL" },
   schaumburg: { name: "Schaumburg", state: "IL" },
   rockford: { name: "Rockford", state: "IL" },
   peoria: { name: "Peoria", state: "IL" },
+
+  // New cities
+  joliet: { name: "Joliet", state: "IL" },
+  elgin: { name: "Elgin", state: "IL" },
+  springfield: { name: "Springfield", state: "IL" },
+  waukegan: { name: "Waukegan", state: "IL" },
+  champaign: { name: "Champaign", state: "IL" },
+  cicero: { name: "Cicero", state: "IL" },
+  bloomington: { name: "Bloomington", state: "IL" },
+  evanston: { name: "Evanston", state: "IL" },
+  "arlington-heights": { name: "Arlington Heights", state: "IL" },
 };
 
 export const INDUSTRIES: Record<
@@ -36,11 +58,11 @@ export const INDUSTRIES: Record<
   healthcare: { name: "Healthcare & Medical", published: true },
   "real-estate": { name: "Real Estate", published: true },
   "legal-services": { name: "Legal Services", published: true },
+  restaurants: { name: "Restaurants & Food Service", published: true },
   "home-services": { name: "Home Services", published: false }, // coming soon
   "professional-services": { name: "Professional Services", published: false },
   "financial-services": { name: "Financial Services", published: false },
   technology: { name: "Technology", published: false },
   manufacturing: { name: "Manufacturing", published: false },
   retail: { name: "Retail", published: false },
-  restaurants: { name: "Restaurants & Food Service", published: true },
 };
